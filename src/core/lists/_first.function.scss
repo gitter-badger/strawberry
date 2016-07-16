@@ -10,6 +10,7 @@
     validate-type($list, 'list', argument-type-error('$list', 'first()'))
     ) {
 
+
     @return nth($list, 1);
 
   }

@@ -8,5 +8,12 @@
   $list, 
   $value
   ) {
-  @return join($value, $list);
+  @if no-error(
+    validate-type($list, 'list', argument-type-error('$list', 'prepend()'))
+    ) {
+
+
+    @return join($value, $list);
+
+  }
 }

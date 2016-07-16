@@ -7,5 +7,12 @@
 @function remove-first(
   $list
 ) {
-  @return remove-nth($list, 1);
+  @if no-error(
+    validate-type($list, 'list', argument-type-error('$list', 'remove-first()'))
+    ) {
+
+
+    @return remove-nth($list, 1);
+
+  }
 }
