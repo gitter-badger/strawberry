@@ -1,0 +1,10 @@
+/// Returns the first element of a list.
+/// @access public
+/// @group lists
+/// @param {List} $list - The list containing the element
+/// @return {*} - The first element of the given list
+@function first(
+  $list
+  ) {
+  @return nth($list, 1);
+}

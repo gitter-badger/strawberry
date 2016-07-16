@@ -1,0 +1,41 @@
+/// Removes a element at a specific index in a list.
+/// @access public
+/// @group lists
+/// @param {List} $list - The list that we want to shrink
+/// @param {Number} $index - The index of the element that we want to remove (can be negative to start from the end of the list)
+/// @return {List} - The new shrinked list
+@function remove-nth($list, $index) {
+  $result: null;
+  
+  // TODO(maximegelinas): Use external validation.
+  @if type-of($index) != number {
+    @warn "$index: #{quote($index)} is not a number for `remove-nth`.";
+  }
+
+  // TODO(maximegelinas): Use external validation.
+  @else if $index == 0 {
+    @warn "List index 0 must be a non-zero integer for `remove-nth`.";
+  }
+
+  // TODO(maximegelinas): Use external validation.
+  @else if abs($index) > length($list) {
+    @warn "List index is #{$index} but list is only #{length($list)} item long for `remove-nth`.";
+  }
+
+  @else {
+    $result: ();
+
+    // Calculates the element index if the index is negative.
+    $index: if($index < 0, length($list) + $index + 1, $index);  
+
+    @for $i from 1 through length($list) {
+      // If the index is not the index that we want to remove,
+      @if $i != $index {
+        // adds the element at this index to the result.
+        $result: append($result, nth($list, $i));
+      }
+    }
+  }
+        
+  @return $result;
+}

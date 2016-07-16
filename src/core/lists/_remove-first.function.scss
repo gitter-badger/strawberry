@@ -1,0 +1,11 @@
+/// Removes a value at the beginning of a list.
+/// @access public
+/// @group lists
+/// @param {List} $list - The list that we want to shrink
+/// @return {List} - The new shrinked list
+/// @require {function} remove-nth
+@function remove-first(
+  $list
+) {
+  @return remove-nth($list, 1);
+}

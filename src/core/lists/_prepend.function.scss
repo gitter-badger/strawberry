@@ -1,0 +1,12 @@
+/// Adds a new value at the beginning of a list.
+/// @access public
+/// @group lists
+/// @param {List} $list - The list that we want to expand
+/// @param {*} $value - The value to add in the list
+/// @return {List} - The new expanded list
+@function prepend(
+  $list, 
+  $value
+  ) {
+  @return join($value, $list);
+}
