@@ -1,26 +1,28 @@
 {
-    "name": "strawberry",
-    "version": "1.0.0",
-    "description": "The Sass Framework",
-    "keywords": [
-        "sass",
-        "framework",
-        "theme"
-    ],
-    "homepage": "https://github.com/strawberrysass/strawberry/blob/master/README.md",
-    "bugs": {
-        "url": "https://github.com/strawberrysass/strawberry/issues"
-    },
-    "license": "MIT",
-    "contributors": [
-        "Maxime Gélinas <maxime.gelinas@idmobiles.com>"
-    ],
-    "main": "_strawberry.scss",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/strawberrysass/strawberry.git"
-    },
-    "scripts": {},
-    "dependencies": {},
-    "devDependencies": {}
+  "name": "strawberry",
+  "version": "1.0.0",
+  "description": "The Sass Framework",
+  "keywords": [
+    "sass",
+    "framework",
+    "theme"
+  ],
+  "homepage": "https://github.com/strawberrysass/strawberry/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/strawberrysass/strawberry/issues"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Maxime Gélinas <maxime.gelinas@idmobiles.com>"
+  ],
+  "main": "_strawberry.scss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strawberrysass/strawberry.git"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^3.8.0"
+  }
 }
