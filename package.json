@@ -20,7 +20,9 @@
     "type": "git",
     "url": "https://github.com/strawberrysass/strawberry.git"
   },
-  "scripts": {},
+  "scripts": {
+    "dev": "node-sass ./ -o ./ -w"
+  },
   "dependencies": {},
   "devDependencies": {
     "node-sass": "^3.8.0"
