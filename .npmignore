@@ -29,11 +29,13 @@ coverage
 build/Release
 
 # Dependency directories
-node_modules
 jspm_packages
 
 # Optional npm cache directory
 .npm
+
+# Others npm files
+.npmignore
 
 # Optional REPL history
 .node_repl_history
@@ -46,3 +48,14 @@ jspm_packages
 
 ### CSS ###
 *.css
+
+
+### Test ###
+test
+tests
+*.spec
+*.test
+
+
+### Demo ###
+demo
