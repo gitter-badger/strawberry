@@ -4,6 +4,4 @@
 
 Strawberry is a Sass framework that make the life easier to create, configure and reuse your own CSS components.
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] 
-
 ## In progress...
