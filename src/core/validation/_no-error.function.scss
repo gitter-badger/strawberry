@@ -1,0 +1,10 @@
+/// A function block to put some validations
+/// @access public
+/// @group validation
+/// @return {Null}
+/// @example `@if no-error(validate(...), validate(...)) { }`
+@function no-error(
+  $validations...
+  ) {
+  @return null;
+}

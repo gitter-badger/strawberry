@@ -1,0 +1,33 @@
+/// Throws an error if the given value is not equal to the expected type.
+/// @access public
+/// @group validation
+/// @param {*} $value - The value
+/// @param {String} $expectedType - The expected type
+/// @param {String} $errorMessage - The error message to display in case of error
+/// @return {Null}
+/// @example `validate-type($value, 'string', '$value must be a %type%')`
+/// @require {function} validate
+@function validate-type(
+  $value,
+  $expectedType,
+  $errorMessage
+  ) {
+  // If `$expectedType` is not a string
+  @if type-of($expectedType) != 'string' {
+    // throws an error.
+    @error 'argument `$expectedType` of `validate-type()` must be a string';
+  }
+  // If `$errorMessage` is not a string
+  @if type-of($errorMessage) != 'string' {
+    // throws an error.
+    @error 'argument `$errorMessage` of `validate-type()` must be a string';
+  }
+  
+  // TODO(maximegelinas): Checks if the expected type is a valid type.
+
+
+  // Replaces any occurence of `%type%` in the error message with the expected type.
+  $errorMessage: str-replace($errorMessage, '%type%', $expectedType);
+
+  @return validate(type-of($value) == $expectedType, $errorMessage);
+}
