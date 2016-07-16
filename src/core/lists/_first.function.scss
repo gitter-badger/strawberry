@@ -6,5 +6,11 @@
 @function first(
   $list
   ) {
-  @return nth($list, 1);
+  @if no-error(
+    validate-type($list, 'list', argument-type-error('$list', 'first()'))
+    ) {
+
+    @return nth($list, 1);
+
+  }
 }

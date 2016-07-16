@@ -6,5 +6,5 @@
 @function no-error(
   $validations...
   ) {
-  @return null;
+  @return true;
 }
