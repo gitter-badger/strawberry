@@ -2,22 +2,34 @@
 /// @access public
 /// @group component
 /// @param {String} $name - Component name
+/// @param {Map} $declarations - [(null:null)] - The declarations for the default variant
 /// @require {group} validation
 /// @require {group} scope
+/// @require {function} _set-component
+/// @require {function} _set-component-variant
 @mixin component(
-  $name
+  $name,
+  $declarations: (null:null)
   ) {
     @if no-error(
-      validate-type($name, 'string', argument-type-error('$name', 'component()'))
+      validate-type($name, 'string', argument-type-error('$name', 'component()')),
+      validate-type($declarations, 'map', argument-type-error('$declarations', 'component()'))
       ) {
       @include new-scope(
-        (component: $name)
+        (componentName: $name)
         ) {
   
   
-      // Makes sure that the component is created.
-      $component: _set-component($name);
+        // Makes sure that the component is created.
+        $component: _set-component($name);
+
+        // If we retrieve some declarations
+        @if $declarations != (null:null) {
+          // sets the default variant with these.
+          $newVariant: _set-component-variant($name, 'default', '', $declarations);
+        }
   
+        // Processes the scope content.
         @content;
   
     }

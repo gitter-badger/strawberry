@@ -1,0 +1,10 @@
+/// Outputs the private CSS of a component.
+/// The output cannot be changed in the theme file.
+/// @access public
+/// @group component
+@mixin private {
+  & {
+    // Outputs the CSS.
+    @content;
+  }
+}

@@ -3,7 +3,7 @@
 /// @group component
 /// @param {String} $name - The component name
 /// @param {String} $selector - The CSS selector of the component
-/// @param {Map} $declarations - A set of component property names and values like so `background: red`
+/// @param {Map} $declarations - A set of component property names and values like so `background: red` or `draggable: false`
 /// @require {group} validation
 /// @require {group} scope
 /// @require {function} _get-component
@@ -18,29 +18,21 @@
     validate-type($selector, 'string', argument-type-error('$selector', 'new-component()')),
     validate-type($declarations, 'map', argument-type-error('$declarations', 'new-component()'))
     ) {
+    @include new-scope(
+        (componentName: $name)
+        ) {
 
+          
+        // TODO(maximegelinas): Makes sure that the component doesn't exist yet.
 
-    // TODO(maximegelinas): Makes shure than the component doesn't exist.
+        // Overrides the existing component and get the result.
+        $component: _set-component($name, $selector, $declarations);
 
-    // Overrides the existing component and get the result.
-    $component: _set-component($name, $selector, $declarations);
+         #{$selector} {
+           // Processes the scope content.
+           @content;
+         }
 
-    // Gets the component variants.
-    $componentVariants: _get-component-variants($name);
-  
-    // Loop through the variants.
-    @each $variantName, $variant in $componentVariants {
-      // Gets the variants declarations.
-      $variantDeclarations: map-get($variant, 'declarations');
-      
-      // Merges the default declarations with the variant declarations.
-      $declarations: map-merge($declarations, $variantDeclarations);
-
-      // Creates a new scope containing the merged declarations.
-      @include new-scope($declarations) {
-        @content;
-      }
     }
-
   }
 }

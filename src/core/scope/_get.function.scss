@@ -13,6 +13,7 @@
     validate-type($variableName, 'string', argument-type-error('$variableName', 'get()'))
     ) {
 
+    // TODO(maximegelinas): Handles call on empty stack;
 
     // Gets the variables of the current scope.
     $scopeVariables: first($_scope-variables-stack);

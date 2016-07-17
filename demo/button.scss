@@ -3,15 +3,18 @@
 @import './theme';
 
 @include new-component(
-    $name: 'im-button', 
-    $selector: 'im-button', 
-    $declarations: (
-        border: 1px solid black,
-        color: white
+  $name: 'im-button', 
+  $selector: 'im-button', 
+  $declarations: (
+    border: 1px solid black,
+    color: white
     )
-    ) { 
-    im-button {
-        border: get('border');
-        color: get('color');
-    }
- }
+  ) { 
+  @include public {
+    border: get('border');
+    color: get('color');
+  }
+  @include private {
+    background-color: black;
+  }
+}
