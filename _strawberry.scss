@@ -12,38 +12,4 @@
 // == Component group ==
 
 @import './src/component';
-
-@include component(
-    $name: 'im-button'
-    ) {
-    @include new-component-variant(
-        $name: 'primary',
-        $selector: '[--primary]',
-        $declarations: (
-            color: red
-        )
-    );
-    @include new-component-variant(
-        $name: 'secondary',
-        $selector: '[--secondary]',
-        $declarations: (
-            color: green
-        )
-    );
-}
-
-
-@include new-component(
-    $name: 'im-button', 
-    $selector: 'im-button', 
-    $declarations: (
-        border: 1px solid black,
-        color: white
-    )
-    ) { 
-    im-button {
-        border: get('border');
-        color: get('color');
-    }
- }
  
