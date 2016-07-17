@@ -1,0 +1,23 @@
+/// Returns a variable from the current scope.
+/// @access public
+/// @group scopes
+/// @param {string} $variableName - The name of the variable to get
+/// @return {*} - The scope variable
+/// @require {group} validation
+/// @require {group} lists
+/// @require {variable} _scope-variables-stack
+@function get(
+  $variableName
+  ) {
+  @if no-error(
+    validate-type($variableName, 'string', argument-type-error('$variableName', 'get()'))
+    ) {
+
+    // Gets the variables of the current scope.
+    $scopeVariables: first($_scope-variables-stack);
+    
+    // Returns the asked variable or null if it doesn't exist.
+    @return map-get($scopeVariables, $variableName);
+
+  }
+}

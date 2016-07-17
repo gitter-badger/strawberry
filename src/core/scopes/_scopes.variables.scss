@@ -1,0 +1,4 @@
+/// The stack of every scopes variables from the newer to the oldest
+/// @access private
+/// @type List
+$_scope-variables-stack: () !global;

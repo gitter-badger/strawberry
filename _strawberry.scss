@@ -8,3 +8,7 @@
 // == Components group ==
 
 @import './src/components';
+
+@include new-scope((myvar: '...')) {
+    @debug get('myvarfail')
+}

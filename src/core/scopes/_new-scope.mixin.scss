@@ -1,0 +1,26 @@
+//// Creates a scope to store variables without affecting to global scope.
+/// @access public
+/// @group scopes
+/// @param {string} $variables - The variables to store in the new scope
+/// @require {group} validation
+/// @require {group} lists
+/// @require {variable} _scope-variables-stack
+@mixin new-scope(
+  $variables
+  ) {
+  @if no-error(
+    validate-type($variables, 'map', argument-type-error('$variables', 'new-scope()'))
+    ) {
+
+
+    // Adds the variables to the scope.
+    $_scope-variables-stack: prepend($_scope-variables-stack, $variables) !global;
+  
+    // Processes the scope execution.
+    @content;
+  
+    // Removes the variables from the scope.
+    $_scope-variables-stack: remove-first($_scope-variables-stack) !global;   
+
+  } 
+}

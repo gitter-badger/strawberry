@@ -5,6 +5,7 @@
 /// @param {String} $search - The substring to replace
 /// @param {String} $replace - The replacement substring
 /// @return {String} - The updated string
+/// @require {group} validation
 @function str-replace(
   $string,
   $search,

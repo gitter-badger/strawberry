@@ -4,6 +4,7 @@
 /// @param {List} $list - The list that we want to shrink
 /// @param {Number} $index - The index of the element that we want to remove (can be negative to start from the end of the list)
 /// @return {List} - The new shrinked list
+/// @require {group} validation
 @function remove-nth(
   $list,
   $index
@@ -12,7 +13,7 @@
     validate-type($list, 'list', argument-type-error('$list', 'remove-nth()')),
     validate-type($index, 'number', argument-type-error('$index', 'remove-nth()')),
     validate($index != 0, argument-value-error('$index', 'remove-nth()', 0)),
-    validate(abs($index) < length($list), 'second argument `$index` of `remove-nth()` is #{$index} but the first argument `$list` is only #{length($list)} item long')
+    validate(abs($index) <= length($list), 'second argument `$index` of `remove-nth()` is #{$index} but the first argument `$list` is only #{length($list)} item long')
     ) {
 
 
