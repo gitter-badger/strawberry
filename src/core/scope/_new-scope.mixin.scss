@@ -1,9 +1,9 @@
 //// Creates a scope to store variables without affecting to global scope.
 /// @access public
-/// @group scopes
+/// @group scope
 /// @param {string} $variables - The variables to store in the new scope
 /// @require {group} validation
-/// @require {group} lists
+/// @require {group} list
 /// @require {variable} _scope-variables-stack
 @mixin new-scope(
   $variables

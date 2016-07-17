@@ -1,14 +1,10 @@
-// Groups
+// Modules
 // =========
 
-// == Core group ==
+// == Core module ==
 
 @import './src/core';
 
-// == Components group ==
+// == Components module ==
 
-@import './src/components';
-
-@include new-scope((myvar: '...')) {
-    @debug get('myvarfail')
-}
+@import './src/component';
