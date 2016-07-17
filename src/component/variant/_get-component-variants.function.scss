@@ -1,0 +1,35 @@
+/// Returns every variants of a component.
+/// @access private
+/// @group component
+/// @param {String} $componentName 
+/// @return {Map} - The component variants
+/// @require {group} validation
+/// @require {function} _get-component
+@function _get-component-variants(
+  $componentName
+  ) {
+  @if no-error(
+    validate-type($componentName, 'string', argument-type-error('$componentName', '_get-component-variants()'))
+    ) {
+
+
+    // Validates if $componentName is a string.
+    @if (type-of($componentName) != 'string') {
+        @error argument-type-error('$componentName', '_get-component-variants($componentName)', 'string');
+    }
+
+    // Gets the component.
+    $component: _get-component($componentName);
+    
+    // Gets the component variants.
+    $componentVariants: map-get($component, 'variants');
+    
+    // If the component doesn't has variants.
+    @if ($componentVariants == null) {
+        $componentVariants: ();
+    }
+
+    @return $componentVariants;
+
+  }
+}

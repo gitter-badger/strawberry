@@ -13,3 +13,20 @@
 // =========
 
 @import './component/component.variables';
+
+// Functions
+// =========
+
+@import './component/get-component.function';
+@import './component/set-component.function';
+
+// Mixins
+// ======
+
+@import './component/component.mixin';
+@import './component/new-component.mixin';
+
+// Groups
+// ======
+
+@import './component/variant';

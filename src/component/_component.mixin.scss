@@ -1,0 +1,25 @@
+/// Creates a new component scope.
+/// @access public
+/// @group component
+/// @param {String} $name - Component name
+/// @require {group} validation
+/// @require {group} scope
+@mixin component(
+  $name
+  ) {
+    @if no-error(
+      validate-type($name, 'string', argument-type-error('$name', 'component()'))
+      ) {
+      @include new-scope(
+        (component: $name)
+        ) {
+  
+  
+      // Makes sure that the component is created.
+      $component: _set-component($name);
+  
+        @content;
+  
+    }
+  }   
+}

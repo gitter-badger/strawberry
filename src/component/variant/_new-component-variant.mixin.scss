@@ -1,0 +1,32 @@
+/// Creates a new component variant.
+/// @access public
+/// @group component
+/// @param {String} $name - The variant name 
+/// @param {String} $selector [''] - The CSS selector of the variant
+/// @param {Map} $declarations [(null:null)] - A set of variant property names and values like so `background: red`.
+/// @require {group} validation
+/// @require {function} _get-component
+/// @require {function} _get-component-variants
+@mixin new-component-variant(
+  $name,
+  $selector,
+  $declarations
+  ) {
+  @if no-error(
+    validate-type($name, 'string', argument-type-error('$name', 'new-component-variant()')),
+    validate-type($selector, 'string', argument-type-error('$selector', 'new-component-variant()')),
+    validate-type($declarations, 'map', argument-type-error('$declarations', 'new-component-variant()'))
+    ) {
+
+
+    $componentName: get('component');
+
+    // TODO(maximegelinas): Makes shure than the variant doesn't exist.
+
+    // Makes sure that the component is created.
+    $component: _set-component($componentName);
+
+    $newVariant: _set-component-variant($componentName, $name, $selector, $declarations);
+
+  }
+}

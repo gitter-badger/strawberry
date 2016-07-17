@@ -1,0 +1,52 @@
+/// Adds a variant to a given component.
+/// @access private
+/// @group component
+/// @param {String} $componentName - The component name 
+/// @param {String} $variantName - The variant name
+/// @param {String} $variantSelector [''] - The CSS selector of the variant
+/// @param {Map} $variantDeclarations [(null:null)] - A set of variant property names and values like so `background: red`.
+/// @return {Map} - The edited component variant
+/// @require {group} validation
+/// @require {variable} _components
+/// @require {function} _get-component
+/// @require {function} _get-component-variants
+@function _set-component-variant(
+  $componentName,
+  $variantName,
+  $variantSelector: '',
+  $variantDeclarations: (null:null)
+  ) {
+  @if no-error(
+    validate-type($componentName, 'string', argument-type-error('$componentName', '_set-component-variant()')),
+    validate-type($variantName, 'string', argument-type-error('$variantName', '_set-component-variant()')),
+    validate-type($variantSelector, 'string', argument-type-error('$variantSelector', '_set-component-variant()')),
+    validate-type($variantDeclarations, 'map', argument-type-error('$variantDeclarations', '_set-component-variant()'))
+    ) {
+
+
+    @if ($variantDeclarations == (null:null)) {
+        $variantDeclarations: ();
+    }
+
+    // Gets the component variants.
+    $componentVariants: _get-component-variants($componentName);
+
+    // Creates the new variant map.
+    $newVariant: (
+        selector: $variantSelector,
+        declarations: $variantDeclarations
+    );
+
+    // Merges the new component variant with the existing one.
+    $mergedVariant: map-merge($componentVariants, ($variantName: $newVariant));
+
+    // Adds the new variant to the component.
+    $componentWithNewVariant: map-merge(_get-component($componentName), (variants: $mergedVariant));
+
+    // Overrides the existing component with the component that has the new variant.
+    $_components: map-merge($_components, ($componentName: $componentWithNewVariant)) !global;
+
+    @return $newVariant;
+
+  }
+}

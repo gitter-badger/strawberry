@@ -1,0 +1,42 @@
+/// Adds a new component.
+/// @access private
+/// @group component
+/// @param {String} $name - The component name
+/// @param {String} $selector [''] - Component CSS selector
+/// @param {Map} $declarations [(null:null)] - A set of component property names and values like so `background: red`
+/// @return {Map} - The edited component
+/// @require {group} validation
+/// @require {function} _get-component
+/// @require {variable} _components
+@function _set-component(
+  $name, 
+  $selector: '', 
+  $declarations: (null:null)
+  ) {
+  @if no-error(
+    validate-type($name, 'string', argument-type-error('$name', '_set-component()')),
+    validate-type($selector, 'string', argument-type-error('$selector', '_set-component()')),
+    validate-type($declarations, 'map', argument-type-error('$declarations', '_set-component()'))
+    ) {
+
+
+    @if ($declarations == (null:null)) {
+      $declarations: ();
+    }
+
+    // Creates the new component map.
+    $newComponent: (
+      selector: $selector,
+      declarations: $declarations
+    );
+
+    // Merges the new component with the existing one.
+    $mergedComponent: map-merge(_get-component($name), $newComponent);
+
+    // Replaces the overriden component to the list or adds it if it doesn't exist.
+    $_components: map-merge($_components, ($name: $mergedComponent)) !global;
+
+    @return $mergedComponent;
+
+  }
+}

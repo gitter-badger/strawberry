@@ -1,0 +1,26 @@
+/// Returns a component with a given name.
+/// @access private
+/// @group component
+/// @param {String} $name - The component name
+/// @return {Map} - The component
+/// @require {group} validation
+/// @require {variable} _components
+@function _get-component(
+  $name
+  ) {
+  @if no-error(
+    validate-type($name, 'string', argument-type-error('$name', '_get-component()'))
+    ) {
+
+
+    $component: map-get($_components, $name);
+
+    // If the component exist
+    @if ($component == null) {
+        $component: ();
+    }
+
+    @return $component;
+
+  }
+}
