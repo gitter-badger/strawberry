@@ -25,9 +25,10 @@
   
   // TODO(maximegelinas): Checks if the expected type is a valid type.
 
-
-  // Replaces any occurence of `%type%` in the error message with the expected type.
-  $errorMessage: str-replace($errorMessage, '%type%', $expectedType);
+  @if str-index($errorMessage, '%type%') {
+    // Replaces any occurence of `%type%` in the error message with the expected type.
+    $errorMessage: str-replace($errorMessage, '%type%', $expectedType);  
+  }
 
   @return validate(type-of($value) == $expectedType, $errorMessage);
 }
