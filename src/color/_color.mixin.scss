@@ -1,0 +1,30 @@
+@mixin color(
+  $name,
+  $base,
+  $variants: (null:null)
+  ) {
+  @if no-error(
+    validate-type($name, 'string', argument-type-error('$name', 'color()')),
+    validate-type($base, 'color', argument-type-error('$base', 'color()')),
+    validate-type($variants, 'map', argument-type-error('$variants', 'color()')),
+    validate(map-has-key($variants, 'base') == false, 'color variant key `base` is reserved by strawberry')
+    ) {
+
+    @if ($variants == (null:null)) {
+      $variants: ();
+    }
+
+    // Creates the new color map.
+    $newColor: (
+      'base': $base
+    );
+
+    // Adds the color variants to the color map.
+    $newColor: map-merge($newColor, $variants);
+
+    // Adds the new color to the color list.
+    $_colors: map-merge($_colors, ($name: $newColor)) !global;
+
+    @debug $_colors;
+  }
+}

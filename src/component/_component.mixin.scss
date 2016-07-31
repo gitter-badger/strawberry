@@ -11,26 +11,26 @@
   $name,
   $declarations: (null:null)
   ) {
-    @if no-error(
-      validate-type($name, 'string', argument-type-error('$name', 'component()')),
-      validate-type($declarations, 'map', argument-type-error('$declarations', 'component()'))
+  @if no-error(
+    validate-type($name, 'string', argument-type-error('$name', 'component()')),
+    validate-type($declarations, 'map', argument-type-error('$declarations', 'component()'))
+    ) {
+    @include new-scope(
+      (componentName: $name)
       ) {
-      @include new-scope(
-        (componentName: $name)
-        ) {
   
   
-        // Makes sure that the component is created.
-        $component: _set-component($name);
+      // Makes sure that the component is created.
+      $component: _set-component($name);
 
-        // If we retrieve some declarations
-        @if $declarations != (null:null) {
-          // sets the default variant with these.
-          $newVariant: _set-component-variant($name, 'default', '', $declarations);
-        }
+      // If we retrieve some declarations
+      @if $declarations != (null:null) {
+        // sets the default variant with these.
+        $newVariant: _set-component-variant($name, 'default', '', $declarations);
+      }
   
-        // Processes the scope content.
-        @content;
+      // Processes the scope content.
+      @content;
   
     }
   }   

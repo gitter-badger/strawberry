@@ -23,6 +23,7 @@
     @error 'argument `$errorMessage` of `validate-type()` must be a string';
   }
   
+
   // TODO(maximegelinas): Checks if the expected type is a valid type.
 
   @if str-index($errorMessage, '%type%') {
@@ -31,4 +32,5 @@
   }
 
   @return validate(type-of($value) == $expectedType, $errorMessage);
+  
 }
