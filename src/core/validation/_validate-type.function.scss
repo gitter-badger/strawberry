@@ -6,14 +6,15 @@
 /// @param {String} $errorMessage - The error message to display in case of error
 /// @return {Null}
 /// @example `validate-type($value, 'string', '$value must be a %type%')`
+/// @require {variable} _valid-types
 /// @require {function} validate
 @function validate-type(
   $value,
   $expectedType,
   $errorMessage
   ) {
-  // If `$expectedType` is not a string
-  @if type-of($expectedType) != 'string' {
+  // If `$expectedType` is not in the valid type list
+  @if index($_valid-types, $expectedType) == null {
     // throws an error.
     @error 'argument `$expectedType` of `validate-type()` must be a string';
   }
@@ -29,6 +30,11 @@
   @if str-index($errorMessage, '%type%') {
     // Replaces any occurence of `%type%` in the error message with the expected type.
     $errorMessage: str-replace($errorMessage, '%type%', $expectedType);  
+  }
+
+  $result: null;
+  @if str-index($expectedType, '<') != null && str-index($expectedType, '>') == str-length($expectedType){
+
   }
 
   @return validate(type-of($value) == $expectedType, $errorMessage);
