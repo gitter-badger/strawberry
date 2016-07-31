@@ -7,15 +7,15 @@
 /// @require {group} validation
 /// @require {function} _get-component
 /// @require {function} _get-component-variants
-@mixin new-component-variant(
+@mixin component-variant(
   $name,
   $selector,
   $declarations
   ) {
   @if no-error(
-    validate-type($name, 'string', argument-type-error('$name', 'new-component-variant()')),
-    validate-type($selector, 'string', argument-type-error('$selector', 'new-component-variant()')),
-    validate-type($declarations, 'map', argument-type-error('$declarations', 'new-component-variant()'))
+    validate-type($name, 'string', argument-type-error('$name', 'component-variant()')),
+    validate-type($selector, 'string', argument-type-error('$selector', 'component-variant()')),
+    validate-type($declarations, 'map', argument-type-error('$declarations', 'component-variant()'))
     ) {
 
 
