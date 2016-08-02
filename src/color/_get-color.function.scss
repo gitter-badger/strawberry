@@ -1,0 +1,28 @@
+/// Returns an existing color.
+/// @access public
+/// @group color
+/// @param {String} $name - The color name
+/// @param {Color} $variant - The name of the color variant
+/// @return {Color} - The color code
+/// @require {group} validation
+/// @require {variable} _colors
+@function get-color(
+  $name,
+  $variant: 'base'
+  ) {
+  @if no-error(
+    validate-type($name, 'string', argument-type-error('$name', 'get-color()')),
+    validate-type($variant, 'string', argument-type-error('$variant', 'get-color()'))
+    ) {
+
+
+    // Gets the color map.
+    $color: map-get($_colors, $name);
+
+    // Gets the color code.
+    $color: map-get($color, $variant);
+
+    @return $color;
+
+  }
+}

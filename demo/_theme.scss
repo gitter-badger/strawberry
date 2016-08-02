@@ -10,7 +10,7 @@
 @include component(
   $name: 'im-button',
   $declarations: (
-    'color': blue  
+    'color': get-color('primary', 'light')  
     )
   ) {
   @include component-variant(
