@@ -2,32 +2,25 @@
 /// @access public
 /// @group color
 /// @param {String} $name - The color name
-/// @param {Color} $base - The default color code
+/// @param {Color} $code - The default color code
 /// @param {Map} $variants [(null:null)] - The color variants
 /// @require {group} validation
 @mixin color(
   $name,
-  $base,
-  $variants: (null:null)
+  $code
   ) {
   @if no-error(
     validate-type($name, 'string', argument-type-error('$name', 'color()')),
-    validate-type($base, 'color', argument-type-error('$base', 'color()')),
-    validate-type($variants, 'map<string, color>', argument-type-error('$variants', 'color()')),
-    validate(map-has-key($variants, 'base') == false, 'color variant key `base` is reserved by strawberry')
+    validate-type($code, 'color', argument-type-error('$code', 'color()'))
     ) {
 
-    @if ($variants == (null:null)) {
-      $variants: ();
-    }
 
-    // Creates the new color map.
+    // Creates the new color map with some default variants.
     $newColor: (
-      'base': $base
+      'base': $code,
+      'light': mix(white, $code, 10%),
+      'dark': mix(black, $code, 10%) 
     );
-
-    // Adds the color variants to the color map.
-    $newColor: map-merge($newColor, $variants);
 
     // Adds the new color to the color list.
     $_colors: map-merge($_colors, ($name: $newColor)) !global;

@@ -1,10 +1,6 @@
 @include color(
   $name: 'primary',
-  $base: #8e3329,
-  $variants: (
-    'light': #d9534f,
-    'dark': #c9302c
-  )
+  $code: #8e3329
 );
 
 @include component(
