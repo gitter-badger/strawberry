@@ -25,18 +25,50 @@
   }
   
 
-  // TODO(maximegelinas): Checks if the expected type is a valid type.
-
   @if str-index($errorMessage, '%type%') {
     // Replaces any occurence of `%type%` in the error message with the expected type.
     $errorMessage: str-replace($errorMessage, '%type%', $expectedType);  
   }
 
-  $result: null;
-  @if str-index($expectedType, '<') != null && str-index($expectedType, '>') == str-length($expectedType){
+  $expression: null;
 
+  // If the type is a generic (ex: list<string>).
+  @if str-index($expectedType, '<') != null and str-index($expectedType, '>') == str-length($expectedType) {
+    // If $value is a list or a map.
+    $values: $value;
+
+    // Gets the generic type (type inside the carrets).
+    $genericType: str-slice($expectedType, str-index($expectedType, '<') + 1, str-length($expectedType) - 1);
+
+    // If $value is a list and the expected type is generic list
+    @if type-of($value) == 'list' and str-index($expectedType, 'list') != null {
+       
+      // loops through the list
+      @each $item in $values {
+        // to validate type of each item.
+        $call: validate(type-of($item) == $genericType, $errorMessage);
+      }
+    }
+
+    // If $value is a map and the expected type is generic map
+    @if type-of($value) == 'map' and str-index($expectedType, 'map') != null {
+       
+      $genericKeyType: str-slice($genericType, 1, str-index($genericType, ',') - 1);
+      $genericValueType: str-slice($genericType, str-index($genericType, ',') + 2, str-length($genericType));
+
+      // loops through the map
+      @each $itemKey, $itemValue in $values {
+        // to validate type of each item key and item value
+        $call: validate(type-of($itemKey) == $genericKeyType, $errorMessage);
+        // and to validate type of each item value.
+        $call: validate(type-of($itemValue) == $genericValueType, $errorMessage);
+      }
+    }
+  }
+  @else {
+    $call: validate(type-of($value) == $expectedType, $errorMessage);
   }
 
-  @return validate(type-of($value) == $expectedType, $errorMessage);
-  
+  @return null;
+
 }

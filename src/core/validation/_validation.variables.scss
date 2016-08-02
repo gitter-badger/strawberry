@@ -4,6 +4,8 @@ $_valid-types: (
     'list',
     'list<string>',
     'map',
+    'map<string, string>',
+    'map<string, color>',
     'number',
     'string'
 )
