@@ -1,0 +1,34 @@
+/// Adds a new color variant.
+/// @access public
+/// @group color
+/// @param {String} $name - The color variant name
+/// @param {Color} $code - The color code
+/// @require {group} validation
+@mixin color-variant(
+  $name,
+  $code
+  ) {
+  @if no-error(
+    validate-type($name, 'string', argument-type-error('$name', 'color-variant()')),
+    validate-type($code, 'color', argument-type-error('$code', 'color-variant()'))
+    ) {
+
+    // Gets the base color name from the scope.
+    $baseColorName: get('base-color');
+
+    // Gets the base color from the color name.
+    $baseColor: map-get($_colors, $baseColorName);
+
+    // Creates the new color variant map.
+    $newColorVariant: (
+      $name: $code
+    );
+
+    // Adds the new color variant to the base color.
+    $mergedColorMap: map-merge($baseColor, $newColorVariant);
+
+    // Adds the edited color to the color list.
+    $_colors: map-merge($_colors, ($baseColorName: $mergedColorMap)) !global;
+
+  }
+}

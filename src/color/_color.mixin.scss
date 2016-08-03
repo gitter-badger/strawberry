@@ -3,7 +3,6 @@
 /// @group color
 /// @param {String} $name - The color name
 /// @param {Color} $code - The default color code
-/// @param {Map} $variants [(null:null)] - The color variants
 /// @require {group} validation
 @mixin color(
   $name,
@@ -13,17 +12,23 @@
     validate-type($name, 'string', argument-type-error('$name', 'color()')),
     validate-type($code, 'color', argument-type-error('$code', 'color()'))
     ) {
+    @include new-scope(
+      ('base-color': $name)
+      ) {  
 
 
-    // Creates the new color map with some default variants.
-    $newColor: (
-      'base': $code,
-      'light': mix(white, $code, 10%),
-      'dark': mix(black, $code, 10%) 
-    );
+      // Creates the new color map with some default variants.
+      $newColor: (
+        'base': $code,
+        'light': mix(white, $code, 10%),
+        'dark': mix(black, $code, 10%) 
+      );
 
-    // Adds the new color to the color list.
-    $_colors: map-merge($_colors, ($name: $newColor)) !global;
+      // Adds the new color to the color list.
+      $_colors: map-merge($_colors, ($name: $newColor)) !global;
 
+      @content;
+
+    }
   }
 }

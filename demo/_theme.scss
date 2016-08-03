@@ -1,7 +1,12 @@
 @include color(
   $name: 'primary',
   $code: #8e3329
-);
+  ) {
+  @include color-variant(
+    $name: 'light',
+    $code: mix(white, get-color(get('base-color')), 50%)
+  );
+}
 
 @include component(
   $name: 'im-button',
