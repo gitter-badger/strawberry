@@ -10,11 +10,11 @@
     color: white
     )
   ) { 
-  @include public {
+  @include dynamic {
     border: get('border');
     color: get('color');
   }
-  @include private {
+  @include static {
     background-color: black;
   }
 }
