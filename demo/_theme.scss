@@ -16,16 +16,16 @@
   ) {
   @include component-variant(
     $name: 'primary',
-    $selector: '[--primary]',
+    $selector: '[-primary]',
     $declarations: (
       'color': red
-    )
+      )
   );
   @include component-variant(
     $name: 'secondary',
-    $selector: '[--secondary]',
+    $selector: '[-secondary]',
     $declarations: (
       'color': green
-    )
+      )
   );
 }
