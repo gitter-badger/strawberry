@@ -37,6 +37,7 @@ cd    strawberry-quickstart
   },
   "devDependencies": {
     "concurrently": "^2.2.0",
+    "lite-server": "^2.2.2",
     "node-sass": "^3.8.0"
   }
 }
@@ -74,7 +75,9 @@ Because Strawberry have to be imported in each file. We import it once in `_main
 
 #### _main.scss
 ```scss
-@import 'strawberry/strawberry';
+/// <reference path="../node_modules/strawberry/_strawberry.scss" />
+
+@import '../node_modules/strawberry/strawberry';
 ```
 
 <!--

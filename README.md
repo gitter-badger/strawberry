@@ -25,7 +25,7 @@
 
 #### Quick links
 
-[Getting started](https://github.com/strawberrysass/strawberry/blob/master/GETTING_STARTED.md),
+[Getting started](https://github.com/strawberrysass/strawberry/blob/master/GETTING_STARTED.md)
 
 <!--
   - ====
