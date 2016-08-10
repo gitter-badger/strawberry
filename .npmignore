@@ -41,6 +41,10 @@ jspm_packages
 .node_repl_history
 
 
+### Visual Studio Code ###
+.vscode
+
+
 ### Sass ###
 .sass-cache/
 *.css.map
