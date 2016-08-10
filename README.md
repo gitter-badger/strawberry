@@ -1,9 +1,3 @@
-
-
-Strawberry is a Sass framework to create, customize and reuse your own CSS components in a easy way.
-
-## In progress...
-
 <!--
   - ======
   - Header
@@ -29,8 +23,9 @@ Strawberry is a Sass framework to create, customize and reuse your own CSS compo
   - ======
  -->
 
- #### Quick links
- [Getting started](https://github.com/strawberrysass/strawberry/blob/master/GETTING_STARTED.md),
+#### Quick links
+
+[Getting started](https://github.com/strawberrysass/strawberry/blob/master/GETTING_STARTED.md),
 
 <!--
   - ====
@@ -42,48 +37,53 @@ Strawberry is a Sass framework to create, customize and reuse your own CSS compo
 
 ## How it works
 
-* ### Component creation
-  ```scss
-  @include new-component(
-   $name: 'greeting', 
-   $selector: '[[greeting]]', 
-   $declarations: (
-     'background-color': transparent,
-     'color': black
-     )
-   ) { 
-   @include public {
-     background-color: get('background-color');
-     color: get('color');
-   }
-   @include private {
-     font-size: 1.5rem;
-   }
-  } 
-  ```
-* ### Component configuration
-  ```scss
-  @include component(
-    $name: 'greeting',
-    $declarations: (
-      'background-color': white
-      )
-    ) {
-    @include component-variant(
-      $name: 'dark',
-      $selector: '[--dark]',
-      $declarations: (
-        'background-color': black,
-        'color': white
-      )
-    );
+### Component creation
+
+```scss
+ @include new-component(
+  $name: 'greeting', 
+  $selector: '[[greeting]]', 
+  $declarations: (
+    'background-color': transparent,
+    'color': black
+    )
+  ) { 
+  @include public {
+    background-color: get('background-color');
+    color: get('color');
   }
-  ```
-* ### Component utilisation
-  ```html
-  <p --greeting>Greeting</p> <!-- { backgroud-color: white; color: black; font-size: 1.5rem; } -->
-  <p --greeting -dark>Greeting</p> <!-- { backgroud-color: black; color: white; font-size: 1.5rem; } -->
-  ```
+  @include private {
+    font-size: 1.5rem;
+  }
+ } 
+```
+
+### Component configuration
+
+```scss
+@include component(
+  $name: 'greeting',
+  $declarations: (
+    'background-color': white
+    )
+  ) {
+  @include component-variant(
+    $name: 'dark',
+    $selector: '[--dark]',
+    $declarations: (
+      'background-color': black,
+      'color': white
+    )
+  );
+}
+```
+
+### Component utilisation
+
+```html
+<p --greeting>Greeting</p> <!-- { backgroud-color: white; color: black; font-size: 1.5rem; } -->
+<p --greeting -dark>Greeting</p> <!-- { backgroud-color: black; color: white; font-size: 1.5rem; } -->
+```
 
 <br>
 

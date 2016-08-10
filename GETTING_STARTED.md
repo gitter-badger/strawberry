@@ -74,6 +74,7 @@ Because Strawberry have to be imported in each file. We import it once in `_main
 
 #### _main.scss
 ```scss
+@import 'strawberry/strawberry';
 ```
 
 <!--
@@ -234,3 +235,14 @@ The **static** section contain the CSS that will never changed. This section can
 </html>
 ```
 
+<!--
+  - ======
+  - Step 7
+  - ======
+ -->
+
+## Step 7: Start the application
+
+```bash
+npm start
+```
