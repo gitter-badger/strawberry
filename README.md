@@ -42,7 +42,7 @@
 ```scss
  @include new-component(
   $name: 'greeting', 
-  $selector: '[[greeting]]', 
+  $selector: '[--greeting]', 
   $declarations: (
     'background-color': transparent,
     'color': black
@@ -69,7 +69,7 @@
   ) {
   @include component-variant(
     $name: 'dark',
-    $selector: '[--dark]',
+    $selector: '[-dark]',
     $declarations: (
       'background-color': black,
       'color': white
