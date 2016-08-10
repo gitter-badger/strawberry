@@ -1,7 +1,7 @@
 /// <reference path="./component/_component.mixin.scss" />
 /// <reference path="./component/_new-component.mixin.scss" />
-/// <reference path="./component/_private.mixin.scss" />
-/// <reference path="./component/_public.mixin.scss" />
+/// <reference path="./component/_dynamic.mixin.scss" />
+/// <reference path="./component/_static.mixin.scss" />
 /// <reference path="./component/_variant.scss" />
 
 
@@ -25,8 +25,8 @@
 
 @import './component/component.mixin';
 @import './component/new-component.mixin';
-@import './component/private.mixin';
-@import './component/public.mixin';
+@import './component/static.mixin';
+@import './component/dynamic.mixin';
 
 // Groups
 // ======

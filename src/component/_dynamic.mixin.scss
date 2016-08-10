@@ -5,7 +5,7 @@
 /// @require {group} scope
 /// @require {function} _get-component
 /// @require {function} _get-component-variants
-@mixin public {
+@mixin dynamic {
   $componentName: get('componentName');
 
   $componentDeclarations: map-get(_get-component($componentName), 'declarations');

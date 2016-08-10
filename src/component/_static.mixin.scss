@@ -2,7 +2,7 @@
 /// The output cannot be changed in the theme file.
 /// @access public
 /// @group component
-@mixin private {
+@mixin static {
   & {
     // Outputs the CSS.
     @content;
