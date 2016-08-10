@@ -5,7 +5,9 @@
   "keywords": [
     "sass",
     "framework",
-    "theme"
+    "component",
+    "theme",
+    "css"
   ],
   "homepage": "https://github.com/strawberrysass/strawberry/blob/master/README.md",
   "bugs": {
@@ -21,7 +23,8 @@
     "url": "https://github.com/strawberrysass/strawberry.git"
   },
   "scripts": {
-    "dev": "node-sass ./ -o ./ -w"
+    "build": "node-sass ./ -o ./ -w",
+    "build:w": "node-sass ./ -o ./"
   },
   "dependencies": {},
   "devDependencies": {
