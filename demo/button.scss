@@ -3,8 +3,8 @@
 @import './theme';
 
 @include new-component(
-  $name: 'im-button', 
-  $selector: '[--im-button]', 
+  $name: 'my-button', 
+  $selector: '[--my-button]', 
   $declarations: (
     border: 1px solid black,
     color: white
@@ -13,8 +13,13 @@
   @include dynamic {
     border: get('border');
     color: get('color');
+    font-family: get-font('primary');
   }
   @include static {
     background-color: black;
+
+    @include media-response('tablets and up') {
+      background-color: white;
+    }
   }
 }

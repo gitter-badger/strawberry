@@ -8,8 +8,18 @@
   );
 }
 
+@include font(
+  $name: 'primary',
+  $family: '"Montserrat", sans-serif'
+);
+
+@include media(
+  $name: 'tablets and up',
+  $query: '(min-width: 768px)'
+);
+
 @include component(
-  $name: 'im-button',
+  $name: 'my-button',
   $declarations: (
     'color': get-color('primary', 'light')  
     )
