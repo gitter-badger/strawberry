@@ -23,11 +23,13 @@
     "url": "https://github.com/strawberrysass/strawberry.git"
   },
   "scripts": {
-    "build": "node-sass ./ -o ./ -w",
-    "build:w": "node-sass ./ -o ./"
+    "build": "node-sass ./ -o ./",
+    "build:w": "node-sass ./ -o ./ -w",
+    "doc": "sassdoc ./src -c ./sassdoc.yaml"
   },
   "dependencies": {},
   "devDependencies": {
-    "node-sass": "^3.8.0"
+    "node-sass": "^3.8.0",
+    "sassdoc": "^2.1.20"
   }
 }

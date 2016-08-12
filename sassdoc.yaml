@@ -1,0 +1,16 @@
+# ============
+# Base options
+# ============
+
+dest: ./doc
+
+# ============
+# View options
+# ============
+
+basePath: https://github.com/strawberrysass/strawberry/blob/master/src
+
+display:
+    access:
+        -public
+    watermark: false
