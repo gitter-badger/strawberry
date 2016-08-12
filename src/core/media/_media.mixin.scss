@@ -1,0 +1,22 @@
+/// Adds a new media.
+/// @access public
+/// @group media
+/// @param {String} $name - The media name
+/// @param {String} $query - The media query
+/// @require {group} validation
+/// @require {variable} _medias
+@mixin media(
+  $name,
+  $query
+  ) {
+  @if no-error(
+    validate-type($name, 'string', argument-type-error('$name', 'media()')),
+    validate-type($query, 'string', argument-type-error('$query', 'media()'))
+    ) {
+
+
+      // Adds the new media to the media list.
+      $_medias: map-merge($_medias, ($name: $query)) !global;
+
+  }
+}
