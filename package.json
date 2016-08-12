@@ -25,10 +25,13 @@
   "scripts": {
     "build": "node-sass ./ -o ./",
     "build:w": "node-sass ./ -o ./ -w",
-    "doc": "sassdoc ./src -c ./sassdoc.yaml"
+    "demo": "cd ./demo && lite-server",
+    "doc": "sassdoc ./src -c ./sassdoc.yaml",
+    "postdoc": "cd ./doc && lite-server"
   },
   "dependencies": {},
   "devDependencies": {
+    "lite-server": "^2.2.2",
     "node-sass": "^3.8.0",
     "sassdoc": "^2.1.20"
   }
