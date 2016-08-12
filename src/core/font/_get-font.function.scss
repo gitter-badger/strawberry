@@ -3,8 +3,6 @@
 /// @group core / font
 /// @param {String} $name - The font name
 /// @return {String} - The font family name
-/// @require {group} validation
-/// @require {variable} _fonts
 @function get-font(
   $name
   ) {

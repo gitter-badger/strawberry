@@ -2,9 +2,6 @@
 /// @access public
 /// @group common / scope
 /// @param {string} $variables - The variables to store in the new scope
-/// @require {group} validation
-/// @require {group} list
-/// @require {variable} _scope-variables-stack
 @mixin new-scope(
   $variables
   ) {

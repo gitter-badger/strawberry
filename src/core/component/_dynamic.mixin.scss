@@ -2,9 +2,6 @@
 /// The output cannot be changed in the theme file.
 /// @access public
 /// @group core / component
-/// @require {group} scope
-/// @require {function} _get-component
-/// @require {function} _get-component-variants
 @mixin dynamic {
   $componentName: get('componentName');
 

@@ -3,8 +3,6 @@
 /// @group core / media
 /// @param {String} $name - The media name
 /// @param {String} $query - The media query
-/// @require {group} validation
-/// @require {variable} _medias
 @mixin media(
   $name,
   $query

@@ -6,10 +6,6 @@
 /// @param {String} $variantSelector [''] - The CSS selector of the variant
 /// @param {Map} $variantDeclarations [(null:null)] - A set of variant property names and values like so `background: red` or `draggable: false`
 /// @return {Map} - The edited component variant
-/// @require {group} validation
-/// @require {variable} _components
-/// @require {function} _get-component
-/// @require {function} _get-component-variants
 @function _set-component-variant(
   $componentName,
   $variantName,

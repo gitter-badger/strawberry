@@ -3,7 +3,6 @@
 /// @group core / color
 /// @param {String} $name - The color variant name
 /// @param {Color} $code - The color code
-/// @require {group} validation
 @mixin color-variant(
   $name,
   $code

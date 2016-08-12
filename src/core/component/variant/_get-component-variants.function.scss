@@ -3,8 +3,6 @@
 /// @group core / component / variant
 /// @param {String} $componentName 
 /// @return {Map} - The component variants
-/// @require {group} validation
-/// @require {function} _get-component
 @function _get-component-variants(
   $componentName
   ) {

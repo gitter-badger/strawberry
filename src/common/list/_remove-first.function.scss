@@ -3,8 +3,6 @@
 /// @group common / list
 /// @param {List} $list - The list that we want to shrink
 /// @return {List} - The new shrinked list
-/// @require {function} remove-nth
-/// @require {group} validation
 @function remove-first(
   $list
 ) {

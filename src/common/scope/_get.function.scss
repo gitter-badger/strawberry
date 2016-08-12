@@ -3,9 +3,6 @@
 /// @group common / scope
 /// @param {string} $variableName - The name of the variable to get
 /// @return {*} - The scope variable
-/// @require {group} validation
-/// @require {group} list
-/// @require {variable} _scope-variables-stack
 @function get(
   $variableName
   ) {

@@ -7,8 +7,6 @@
 /// @return {Null}
 /// @example 
 ///   validate-type($value, 'string', '$value must be a %type%')
-/// @require {variable} _valid-types
-/// @require {function} validate
 @function validate-type(
   $value,
   $expectedType,

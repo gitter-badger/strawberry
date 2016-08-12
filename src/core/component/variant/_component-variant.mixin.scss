@@ -4,9 +4,6 @@
 /// @param {String} $name - The variant name 
 /// @param {String} $selector [''] - The CSS selector of the variant
 /// @param {Map} $declarations [(null:null)] - A set of variant property names and values like so `background: red` or `draggable: false`
-/// @require {group} validation
-/// @require {function} _get-component
-/// @require {function} _get-component-variants
 @mixin component-variant(
   $name,
   $selector,

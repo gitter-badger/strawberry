@@ -5,7 +5,8 @@
 /// @param {String} $functionName - The name of the called function
 /// @param {*} $invalidValue - The invalid values of the argument
 /// @return {String} - The error message
-/// @example `validate-type(5, 'number', argument-type-error('$myArgs', 'myFn()', 0)`
+/// @example 
+///   validate-type(5, 'number', argument-type-error('$myArgs', 'myFn()', 0)
 @function argument-value-error(
   $argumentName,
   $functionName,

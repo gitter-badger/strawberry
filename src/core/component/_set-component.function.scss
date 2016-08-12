@@ -5,9 +5,6 @@
 /// @param {String} $selector [''] - Component CSS selector
 /// @param {Map} $declarations [(null:null)] - A set of component property names and values like so `background: red` or `draggable: false`
 /// @return {Map} - The edited component
-/// @require {group} validation
-/// @require {function} _get-component
-/// @require {variable} _components
 @function _set-component(
   $name, 
   $selector: '', 

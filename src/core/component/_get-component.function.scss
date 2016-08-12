@@ -3,8 +3,6 @@
 /// @group core / component
 /// @param {String} $name - The component name
 /// @return {Map} - The component
-/// @require {group} validation
-/// @require {variable} _components
 @function _get-component(
   $name
   ) {

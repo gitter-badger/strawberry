@@ -4,8 +4,6 @@
 /// @param {String} $name - The color name
 /// @param {String} $variant - The name of the color variant
 /// @return {Color} - The color code
-/// @require {group} validation
-/// @require {variable} _colors
 @function get-color(
   $name,
   $variant: 'base'

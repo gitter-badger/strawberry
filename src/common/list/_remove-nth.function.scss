@@ -4,7 +4,6 @@
 /// @param {List} $list - The list that we want to shrink
 /// @param {Number} $index - The index of the element that we want to remove (can be negative to start from the end of the list)
 /// @return {List} - The new shrinked list
-/// @require {group} validation
 @function remove-nth(
   $list,
   $index
