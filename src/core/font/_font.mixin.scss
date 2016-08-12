@@ -1,0 +1,22 @@
+/// Adds a new font.
+/// @access public
+/// @group font
+/// @param {String} $name - The font name
+/// @param {String} $family - The font family
+/// @require {group} validation
+/// @require {variable} _fonts
+@mixin font(
+  $name,
+  $family
+  ) {
+  @if no-error(
+    validate-type($name, 'string', argument-type-error('$name', 'font()')),
+    validate-type($family, 'string', argument-type-error('$family', 'font()'))
+    ) {
+
+
+      // Adds the new font to the font list.
+      $_fonts: map-merge($_fonts, ($name: $family)) !global;
+
+  }
+}
