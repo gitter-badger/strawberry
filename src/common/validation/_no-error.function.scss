@@ -1,8 +1,9 @@
 /// A function block to put some validations
 /// @access public
-/// @group validation
+/// @group common / validation
 /// @return {Null}
-/// @example `@if no-error(validate(...), validate(...)) { }`
+/// @example 
+///   @if no-error(validate(...), validate(...)) { }
 @function no-error(
   $validations...
   ) {

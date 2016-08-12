@@ -1,6 +1,6 @@
 /// Creates a new component variant.
 /// @access public
-/// @group component
+/// @group core / component / variant
 /// @param {String} $name - The variant name 
 /// @param {String} $selector [''] - The CSS selector of the variant
 /// @param {Map} $declarations [(null:null)] - A set of variant property names and values like so `background: red` or `draggable: false`

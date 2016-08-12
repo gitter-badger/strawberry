@@ -1,6 +1,6 @@
 /// Creates a new component and outputs his CSS.
 /// @access public
-/// @group component
+/// @group core / component
 /// @param {String} $name - The component name
 /// @param {String} $selector - The CSS selector of the component
 /// @param {Map} $declarations - A set of component property names and values like so `background: red` or `draggable: false`

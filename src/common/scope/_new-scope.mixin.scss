@@ -1,6 +1,6 @@
 //// Creates a scope to store variables without affecting to global scope.
 /// @access public
-/// @group scope
+/// @group common / scope
 /// @param {string} $variables - The variables to store in the new scope
 /// @require {group} validation
 /// @require {group} list

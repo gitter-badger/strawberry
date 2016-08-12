@@ -1,3 +1,7 @@
+/// The list of every type accepted by the type validation functions.
+/// @access private
+/// @group common / validation
+/// @type List
 $_valid-types: (
     'bool',
     'color',

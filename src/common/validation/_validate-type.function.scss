@@ -1,11 +1,12 @@
 /// Throws an error if the given value is not equal to the expected type.
 /// @access public
-/// @group validation
+/// @group common / validation
 /// @param {*} $value - The value
 /// @param {String} $expectedType - The expected type
 /// @param {String} $errorMessage - The error message to display in case of error
 /// @return {Null}
-/// @example `validate-type($value, 'string', '$value must be a %type%')`
+/// @example 
+///   validate-type($value, 'string', '$value must be a %type%')
 /// @require {variable} _valid-types
 /// @require {function} validate
 @function validate-type(
