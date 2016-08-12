@@ -4,6 +4,7 @@
 /// @param {String} $name - The color name
 /// @param {Color} $code - The default color code
 /// @require {group} validation
+/// @require {variable} _colors
 @mixin color(
   $name,
   $code
