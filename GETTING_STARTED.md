@@ -31,14 +31,15 @@ cd    strawberry-quickstart
   "version": "1.0.0",
   "scripts": {
     "start": "npm run build && concurrently \"npm run build:w\" \"npm run serve\" ",
-    "build": "node-sass ./ -o ./ -w",
-    "build:w": "node-sass ./ -o ./",
-    "serve": "lite-server",
+    "build": "node-sass ./ -o ./",
+    "build:w": "node-sass ./ -o ./ -w",
+    "serve": "lite-server"
   },
   "devDependencies": {
     "concurrently": "^2.2.0",
     "lite-server": "^2.2.2",
-    "node-sass": "^3.8.0"
+    "node-sass": "^3.8.0",
+    "strawberry": "1.0.0-alpha.2"
   }
 }
 ```
