@@ -1,6 +1,6 @@
 /// <reference path="./src/_color.scss" />
 /// <reference path="./src/_component.scss" />
-/// <reference path="./src/_core.scss" />
+/// <reference path="./src/_common.scss" />
 
 
 // ==================
@@ -8,11 +8,11 @@
 // ==================
 
 // Groups
-// =========
+// ======
 
-// == Core group ==
+// == Common group ==
 
-@import './src/core';
+@import './src/common';
 
 // == Component group ==
 

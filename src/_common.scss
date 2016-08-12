@@ -1,0 +1,28 @@
+/// <reference path="./common/_validation.scss" />
+/// <reference path="./common/_string.scss" />
+/// <reference path="./common/_list.scss" />
+/// <reference path="./common/_scope.scss" />
+
+
+// ==============
+// Group content
+// ==============
+
+// Groups
+// ======
+
+// == validation group ==
+
+@import './common/validation';
+
+// == String group ==
+
+@import './common/string';
+
+// == List group ==
+
+@import './common/list';
+
+// == Scope group ==
+
+@import './common/scope';
