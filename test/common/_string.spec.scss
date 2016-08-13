@@ -1,0 +1,12 @@
+// ==========
+// Group test
+// ==========
+
+@include test-module('common / string') {
+
+  // Functions
+  // =========
+  
+  @import './string/str-ends-with.function.spec';
+
+}

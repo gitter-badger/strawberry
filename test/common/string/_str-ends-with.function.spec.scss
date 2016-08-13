@@ -1,0 +1,24 @@
+@include test(
+  'str-ends-with [function]'
+  ) {
+
+
+  @include assert-true(
+    $description: 'should returns `true` if the string ends with the searched string',
+
+    $assert: str-ends-with('Lorem ipsum dolor sit amet', 't')
+    );
+
+  @include assert-false(
+    $description: 'should returns `false` if the string dosen\'t t ends with the searched string',
+
+    $assert: str-ends-with('Lorem ipsum dolor sit amet', 's')
+    )
+
+  @include assert-true(
+    $description: 'should handle searched string with many characters',
+
+    $assert: str-ends-with('Lorem ipsum dolor sit amet', ' amet')
+    )
+
+}
