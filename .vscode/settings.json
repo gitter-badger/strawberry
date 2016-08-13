@@ -12,6 +12,11 @@
         "node_modules": true
     },
 
+    // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
+    "files.associations": {
+        ".sassdocrc": "yaml"
+    },
+
 // Search
 
     // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.
