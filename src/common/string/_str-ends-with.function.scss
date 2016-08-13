@@ -8,13 +8,18 @@
   $string,
   $search
   ) {
+  $this: 'str-ends-with()';
   @if no-error(
-    validate-type($string, 'string', argument-type-error('$string', 'str-ends-with()', 'string')),
-    validate-type($search, 'string', argument-type-error('$search', 'str-ends-with()', 'string'))
+    validate-type($string, 'string', argument-type-error('$string', $this, 'string')),
+    validate($string != '', argument-value-error('$string', $this, 'a empty string')),
+    validate-type($search, 'string', argument-type-error('$search', $this, 'string')),
+    validate($search != '', argument-value-error('$search', $this, 'a empty string'))
     ) {
 
+    // Gets the starting point where we should slice the original string.
+    $searchAt: str-length($string) - str-length($search) + 1;
 
-    @return str-index($string, $search) == str-length($string);
+    @return str-slice($string, $searchAt) == $search
 
   }
 }
