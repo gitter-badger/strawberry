@@ -10,7 +10,7 @@
     );
 
   @include assert-false(
-    $description: 'should returns `false` if the string dosen\'t t ends with the searched string',
+    $description: 'should returns `false` if the string dosen\'t ends with the searched string',
 
     $assert: str-ends-with('Lorem ipsum dolor sit amet', 's')
     )
