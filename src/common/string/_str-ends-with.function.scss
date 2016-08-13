@@ -11,15 +11,22 @@
   $this: 'str-ends-with()';
   @if no-error(
     validate-type($string, 'string', argument-type-error('$string', $this, 'string')),
-    validate($string != '', argument-value-error('$string', $this, 'a empty string')),
-    validate-type($search, 'string', argument-type-error('$search', $this, 'string')),
-    validate($search != '', argument-value-error('$search', $this, 'a empty string'))
+    validate-type($search, 'string', argument-type-error('$search', $this, 'string'))
     ) {
 
-    // Gets the starting point where we should slice the original string.
-    $searchAt: str-length($string) - str-length($search) + 1;
 
-    @return str-slice($string, $searchAt) == $search
+    $searchLength: str-length($search);
+    $stringLength: str-length($string);
+
+    @if $searchLength > $stringLength {
+      @return false;
+    }
+    @else {
+      // Gets the starting point where we should slice the original string.
+      $searchAt: $stringLength - $searchLength + 1;
+
+      @return str-slice($string, $searchAt) == $search
+    }
 
   }
 }

@@ -4,21 +4,27 @@
 
 
   @include assert-true(
-    $description: 'should returns `true` if the string ends with the searched string',
+    $description: 'should return `true` if the string ends with the searched string',
 
     $assert: str-ends-with('Lorem ipsum dolor sit amet', 't')
     );
 
   @include assert-false(
-    $description: 'should returns `false` if the string dosen\'t ends with the searched string',
+    $description: 'should return `false` if the string dosen\'t ends with the searched string',
 
     $assert: str-ends-with('Lorem ipsum dolor sit amet', 's')
     )
 
   @include assert-true(
-    $description: 'should handle searched string with many characters',
+    $description: 'should work if the searched string has many characters',
 
-    $assert: str-ends-with('Lorem ipsum dolor sit amet', ' amet')
+    $assert: str-ends-with('Lorem ipsum dolor sit amet', 'amet')
+    )
+
+  @include assert-false(
+    $description: 'should not work if the searched string is longer than the original string',
+
+    $assert: str-ends-with('Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
     )
 
 }
