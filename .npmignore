@@ -63,3 +63,8 @@ tests
 
 ### Demo ###
 demo
+
+### Documentation ###
+doc
+*.md
+.sassdocrc
