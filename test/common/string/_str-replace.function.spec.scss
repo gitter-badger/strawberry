@@ -1,0 +1,34 @@
+@include test(
+  'str-replace [function]'
+  ) {
+
+
+  @include assert-equal(
+    $description: 'should replace one occurence of the searched string',
+
+    $assert: str-replace('Lorem ipsum dolor sit amet', 'amet', '***'),
+    $expected: 'Lorem ipsum dolor sit ***'
+    );
+
+  @include assert-equal(
+    $description: 'should replace all occurences of the searched string',
+
+    $assert: str-replace('Lorem ipsum dolor sit amet', 'o', '*'),
+    $expected: 'L*rem ipsum d*l*r sit amet'
+    );
+
+  @include assert-equal(
+    $description: 'should return the original string if there is no match',
+
+    $assert: str-replace('Lorem ipsum dolor sit amet', 'w', '*'),
+    $expected: 'Lorem ipsum dolor sit amet'
+    );
+
+  @include assert-equal(
+    $description: 'should handle empty initial string',
+
+    $assert: str-replace('', 's', '*'),
+    $expected: ''
+    );
+
+}
