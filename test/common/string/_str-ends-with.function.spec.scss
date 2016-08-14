@@ -22,9 +22,15 @@
     )
 
   @include assert-false(
-    $description: 'should not work if the searched string is longer than the original string',
+    $description: 'should not work if the searched string is longer than the parent string',
 
     $assert: str-ends-with('Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+    )
+
+  @include assert-true(
+    $description: 'should work if the strings are equal',
+
+    $assert: str-ends-with('Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet')
     )
 
 }
