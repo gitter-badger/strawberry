@@ -14,7 +14,7 @@
     ) {
 
 
-    @return str-index($string, $search) == null;
+    @return str-index($string, $search) != null;
     
   }
 }
