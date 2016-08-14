@@ -1,0 +1,22 @@
+/// <reference path="./strawberry/_common.scss" />
+/// <reference path="./strawberry/_core.scss" />
+
+
+// ==========
+// Strawberry
+// ==========
+
+// Groups
+// ======
+
+// == Common group ==
+
+@import './strawberry/common';
+
+// == Core group ==
+
+@import './strawberry/core';
+
+// == Test group ==
+
+@import './strawberry/test';
