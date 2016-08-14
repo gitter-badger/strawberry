@@ -12,17 +12,28 @@
   ) {
   @if no-error(
     validate-type($string, 'string', argument-type-error('$string', 'str-replace()', 'string')),
-    validate-type($search, 'string', argument-type-error('$search', 'str-replace()', 'string')), 
+    validate-type($search, 'string', argument-type-error('$search', 'str-replace()', 'string')),
+    validate($search != '', argument-value-error('$search', 'str-replace()', 'an empty string')),  
     validate-type($replace, 'string', argument-type-error('$replace', 'str-replace()', 'string'))
     ) {
 
 
-    // Finds the fist occurence of the substring to replace in the The initial string.
-    $index: str-index($string, $search);
+    // Try to finds the position in the initial string of the first characters of the fist occurence of the string to replace.
+    $searchStart: str-index($string, $search);
     
-    @if $index {
-      // TODO(maximgegelinas): Adds comments.
-      @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    // If an occurence of the search string is find.     
+    @if $searchStart {
+      // Gets the position in the initial string of the last characters of the fist occurence of the string to replace.
+      $searchEnd: $searchStart + str-length($search);
+
+      // Gets the characters that are before the string to replace.
+      $partBefore: str-slice($string, 1, $searchStart - 1);
+
+      // Gets the characters that are after the string to replace.
+      $partAfter: str-slice($string, $searchEnd);
+
+      // Replaces all other occurrences of the search string and return the new string.
+      @return $partBefore + $replace + str-replace($partAfter, $search, $replace);
     }
     
     @return $string;
