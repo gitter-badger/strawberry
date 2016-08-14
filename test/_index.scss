@@ -2,6 +2,22 @@
 
 @import '../strawberry';
 
+@mixin describe(
+  $description
+  ) {
+  @include test-module($description) {
+    @content;
+  }
+}
+
+@mixin it(
+  $expectation
+  ) {
+  @include test($expectation) {
+    @content;
+  }
+}
+
 // ===============
 // Strawberry test
 // ===============

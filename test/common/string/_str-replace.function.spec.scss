@@ -1,34 +1,35 @@
-@include test(
-  'str-replace [function]'
-  ) {
+@include describe('str-replace [function]') {
 
+  @include it('should replace one occurence of the searched string') {
 
-  @include assert-equal(
-    $description: 'should replace one occurence of the searched string',
+    @include assert-equal(
+      $assert: str-replace('Lorem ipsum dolor sit amet', 'amet', '***'),
+      $expected: 'Lorem ipsum dolor sit ***'
+      );
+  }
 
-    $assert: str-replace('Lorem ipsum dolor sit amet', 'amet', '***'),
-    $expected: 'Lorem ipsum dolor sit ***'
-    );
+  @include it('should replace all occurences of the searched string') {
 
-  @include assert-equal(
-    $description: 'should replace all occurences of the searched string',
+    @include assert-equal(
+      $assert: str-replace('Lorem ipsum dolor sit amet', 'o', '*'),
+      $expected: 'L*rem ipsum d*l*r sit amet'
+      );
+  }
 
-    $assert: str-replace('Lorem ipsum dolor sit amet', 'o', '*'),
-    $expected: 'L*rem ipsum d*l*r sit amet'
-    );
+  @include it('should return the original string if there is no match') {
 
-  @include assert-equal(
-    $description: 'should return the original string if there is no match',
+    @include assert-equal(
+      $assert: str-replace('Lorem ipsum dolor sit amet', 'w', '*'),
+      $expected: 'Lorem ipsum dolor sit amet'
+      );
+  }
 
-    $assert: str-replace('Lorem ipsum dolor sit amet', 'w', '*'),
-    $expected: 'Lorem ipsum dolor sit amet'
-    );
+  @include it('should handle empty initial string') {
 
-  @include assert-equal(
-    $description: 'should handle empty initial string',
-
-    $assert: str-replace('', 's', '*'),
-    $expected: ''
-    );
+    @include assert-equal(
+      $assert: str-replace('', 's', '*'),
+      $expected: ''
+      );
+  }
 
 }

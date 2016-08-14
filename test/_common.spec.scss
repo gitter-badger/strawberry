@@ -2,9 +2,13 @@
 // Group test
 // ==========
 
-// Groups
-// ======
+@include describe('common') {
 
-// == String group ==
+  // Groups
+  // ======
 
-@import './common/string.spec';
+  // == String group ==
+
+  @import './common/string.spec';
+
+}

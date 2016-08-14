@@ -1,36 +1,38 @@
-@include test(
-  'str-ends-with [function]'
-  ) {
+@include describe('str-ends-with [function]') {
 
+  @include it('should return `true` if the string ends with the searched string') {
 
-  @include assert-true(
-    $description: 'should return `true` if the string ends with the searched string',
+    @include assert-true(
+      $assert: str-ends-with('Lorem ipsum dolor sit amet', 't')
+      );
+  }
 
-    $assert: str-ends-with('Lorem ipsum dolor sit amet', 't')
-    );
+  @include it('should return `false` if the string dosen\'t ends with the searched string') {
 
-  @include assert-false(
-    $description: 'should return `false` if the string dosen\'t ends with the searched string',
+    @include assert-false(
+      $assert: str-ends-with('Lorem ipsum dolor sit amet', 's')
+      );
+  }
 
-    $assert: str-ends-with('Lorem ipsum dolor sit amet', 's')
-    )
+  @include it('should work if the searched string has many characters') {
 
-  @include assert-true(
-    $description: 'should work if the searched string has many characters',
+    @include assert-true(
+      $assert: str-ends-with('Lorem ipsum dolor sit amet', 'amet')
+      );
+  }
 
-    $assert: str-ends-with('Lorem ipsum dolor sit amet', 'amet')
-    )
+  @include it('should not work if the searched string is longer than the parent string') {
 
-  @include assert-false(
-    $description: 'should not work if the searched string is longer than the parent string',
+    @include assert-false(
+      $assert: str-ends-with('Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+      );
+  }
 
-    $assert: str-ends-with('Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
-    )
+  @include it('should work if the strings are equal') {
 
-  @include assert-true(
-    $description: 'should work if the strings are equal',
-
-    $assert: str-ends-with('Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet')
-    )
+    @include assert-true(
+      $assert: str-ends-with('Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet')
+      );
+  }
 
 }

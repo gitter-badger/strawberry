@@ -1,35 +1,38 @@
-@include test(
-  'str-contains [function]'
-  ) {
+@include describe('str-contains [function]') {
 
-  @include assert-true(
-    $description: 'should return `true` if the string contains the searched string',
+  @include it('should return `true` if the string contains the searched string') {
 
-    $assert: str-contains('Lorem ipsum dolor sit amet', 'p')
-    );
+    @include assert-true(
+      $assert: str-contains('Lorem ipsum dolor sit amet', 's')
+      );
+  }
 
-  @include assert-false(
-    $description: 'should return `false` if the string dosen\'t contains the searched string',
+  @include it('should return `false` if the string dosen\'t contains the searched string') {
 
-    $assert: str-contains('Lorem ipsum dolor sit amet', 'w')
-    )
+    @include assert-false(
+      $assert: str-contains('Lorem ipsum dolor sit amet', 'b')
+      );
+  }
 
-  @include assert-true(
-    $description: 'should work if the searched string has many characters',
+  @include it('should work if the searched string has many characters') {
 
-    $assert: str-contains('Lorem ipsum dolor sit amet', 'ipsum dolor')
-    )
+    @include assert-true(
+      $assert: str-contains('Lorem ipsum dolor sit amet', 'ipsum dolor')
+      );
+  }
 
-  @include assert-false(
-    $description: 'should not work if the searched string is longer than the original string',
+  @include it('should not work if the searched string is longer than the original string') {
 
-    $assert: str-contains('Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
-    )
+    @include assert-false(
+      $assert: str-contains('Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+      );
+  }
 
-  @include assert-true(
-    $description: 'should work if the strings are equal',
+  @include it('should work if the strings are equal') {
 
-    $assert: str-contains('Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet')
-    )
+    @include assert-true(
+      $assert: str-contains('Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet')
+      );
+  }
 
 }

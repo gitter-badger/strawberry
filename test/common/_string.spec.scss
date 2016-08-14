@@ -2,7 +2,7 @@
 // Group test
 // ==========
 
-@include test-module('common / string') {
+@include describe('string') {
 
   // Functions
   // =========
