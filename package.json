@@ -24,18 +24,19 @@
   },
   "scripts": {
     "test": "mocha",
-    "build": "node-sass ./ -o ./",
-    "build:w": "node-sass ./ -o ./ -w",
+    "build": "node-sass ./ -o ./ --include-path ./src",
+    "build:w": "node-sass ./ -o ./ --include-path ./src -w",
     "demo": "cd ./demo && lite-server",
-    "doc": "sassdoc ./src",
-    "postdoc": "cd ./doc && lite-server"
+    "doc": "sassdoc ./src -c ./.sassdoc.yml",
+    "postdoc": "cd ./doc && lite-server",
+    "lint": "sass-lint ./**/*.scss -c ./.sass-lint.yml -v -i ./node_modules/**"
   },
   "dependencies": {},
   "devDependencies": {
-    "istanbul": "^0.4.4",
     "lite-server": "^2.2.2",
     "mocha": "^3.0.2",
     "node-sass": "^3.8.0",
+    "sass-lint": "^1.8.2",
     "sass-true": "^2.1.3",
     "sassdoc": "^2.1.20"
   }

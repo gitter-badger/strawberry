@@ -1,4 +1,5 @@
-@import '../strawberry';
+@import 'strawberry/common';
+@import 'strawberry/core';
 
 @import './theme';
 
@@ -16,7 +17,7 @@
     font-family: get-font('primary');
   }
   @include static {
-    background-color: black;
+    background-color: yellow;
 
     @include media-response('tablets and up') {
       background-color: white;
