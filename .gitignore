@@ -46,3 +46,6 @@ jspm_packages
 
 ### CSS ###
 *.css
+
+### Others ###
+*.ignore*
