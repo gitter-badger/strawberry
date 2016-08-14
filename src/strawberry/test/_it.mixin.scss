@@ -1,0 +1,15 @@
+/// Describe a test
+/// @access public
+/// @group test
+/// @param {String} $expectation - What the tested function/mixin should do.
+@mixin it(
+  $expectation
+  ) {
+
+
+  // Uses the `test` mixin from `sass-true`.
+  @include test($expectation) {
+    @content;
+  }
+  
+}

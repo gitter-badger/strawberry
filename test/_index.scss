@@ -1,26 +1,13 @@
-@import 'true';
+// ============================
+// Strawberry test dependencies
+// ============================
 
-@import '../strawberry';
+@import 'strawberry/test';
 
-@mixin describe(
-  $description
-  ) {
-  @include test-module($description) {
-    @content;
-  }
-}
 
-@mixin it(
-  $expectation
-  ) {
-  @include test($expectation) {
-    @content;
-  }
-}
-
-// ===============
-// Strawberry test
-// ===============
+// =======================
+// Strawberry test content
+// =======================
 
 // Groups
 // ======

@@ -1,0 +1,14 @@
+/// Defines a test group
+/// @access public
+/// @group test
+/// @param {String} $description - The test group name
+@mixin describe(
+  $description
+  ) {
+
+  // Uses the `test-module` mixin from `sass-true`.
+  @include test-module($description) {
+    @content;
+  }
+  
+}

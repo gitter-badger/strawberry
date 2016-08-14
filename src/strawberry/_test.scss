@@ -1,0 +1,20 @@
+/// <reference path="./_describe.mixin.scss" />
+/// <reference path="./_it.mixin.scss" />
+
+
+// ==================
+// Group dependencies
+// ==================
+
+@import 'true';
+
+
+// =============
+// Group content
+// =============
+
+// Mixins
+// ======
+
+@import './test/describe.mixin';
+@import './test/it.mixin';
