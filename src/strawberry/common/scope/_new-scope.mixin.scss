@@ -1,6 +1,6 @@
 //// Creates a scope to store variables without affecting to global scope.
 /// @access public
-/// @group common / scope
+/// @group common
 /// @param {string} $variables - The variables to store in the new scope
 @mixin new-scope(
   $variables

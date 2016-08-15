@@ -1,5 +1,5 @@
 /// The stack of every scopes variables from the newer to the oldest
 /// @access private
-/// @group common / scope
+/// @group common
 /// @type List
 $_scope-variables-stack: () !global;
