@@ -4,32 +4,40 @@
 /// @param {*} $value - The value
 /// @param {String} $expectedType - The expected type
 /// @param {String} $errorMessage - The error message to display in case of error
-/// @return {Null}
+/// @param {Boolean} $continue [false] - If true, no error will be threw
+/// @return {Boolean}
 /// @example 
 ///   validate-type($value, 'string', '$value must be a %type%')
 @function validate-type(
   $value,
   $expectedType,
-  $errorMessage
+  $errorMessage,
+  $continue: false
   ) {
+  $this: 'validate-type()';
   // If `$expectedType` is not in the valid type list
   @if index($_valid-types, $expectedType) == null {
     // throws an error.
-    @error 'argument `$expectedType` of `validate-type()` must be a string';
+    @error argument-type-error('$value', $this, 'string contained in the following list: `#{$_valid-types}`');
   }
   // If `$errorMessage` is not a string
   @if type-of($errorMessage) != 'string' {
     // throws an error.
-    @error 'argument `$errorMessage` of `validate-type()` must be a string';
+    @error argument-type-error('$errorMessage', $this, 'string');
+  }
+  // If `$continue` is not a boolean
+  @if type-of($continue) != 'bool' {
+    // throws an error.
+    @error argument-type-error('$continue', $this, 'bool');;
   }
   
+ 
+  $result: null;
 
   @if str-index($errorMessage, '%type%') {
     // Replaces any occurence of `%type%` in the error message with the expected type.
     $errorMessage: str-replace($errorMessage, '%type%', $expectedType);  
   }
-
-  $expression: null;
 
   // If the type is a generic (ex: list<string>).
   @if str-index($expectedType, '<') != null and str-index($expectedType, '>') == str-length($expectedType) {
@@ -45,7 +53,7 @@
       // loops through the list
       @each $item in $values {
         // to validate type of each item.
-        $call: validate(type-of($item) == $genericType, $errorMessage);
+        $result: validate(type-of($item) == $genericType, $errorMessage, $continue);
       }
     }
 
@@ -58,16 +66,16 @@
       // loops through the map
       @each $itemKey, $itemValue in $values {
         // to validate type of each item key and item value
-        $call: validate(type-of($itemKey) == $genericKeyType, $errorMessage);
+        $result: validate(type-of($itemKey) == $genericKeyType, $errorMessage, $continue);
         // and to validate type of each item value.
-        $call: validate(type-of($itemValue) == $genericValueType, $errorMessage);
+        $result: validate(type-of($itemValue) == $genericValueType, $errorMessage, $continue);
       }
     }
   }
   @else {
-    $call: validate(type-of($value) == $expectedType, $errorMessage);
+    $result: validate(type-of($value) == $expectedType, $errorMessage, $continue);
   }
 
-  @return null;
+  @return $result;
 
 }

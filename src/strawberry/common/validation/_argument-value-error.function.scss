@@ -12,5 +12,14 @@
   $functionName,
   $invalidValues
   ) {
-    @return 'argument `#{$argumentName}` of `#{$functionName}` can\'t be #{$invalidValues}';
+  $this: 'argument-value-error()';
+  @if no-error(
+    validate-type($argumentName, 'string', 'argument `$argumentName` of `#{$this}` must be a string'),
+    validate-type($functionName, 'string', 'argument `$functionName` of `#{$this}` must be a string')
+    ) {
+
+
+    @return 'argument `#{$argumentName}` of `#{$functionName}` can\'t be `#{$invalidValues}`';
+
+  }
 }

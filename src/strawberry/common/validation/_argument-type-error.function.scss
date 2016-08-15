@@ -3,14 +3,24 @@
 /// @group common / validation
 /// @param {String} $argumentName - The name of the invalid argument
 /// @param {String} $functionName - The name of the called function
-/// @param {String} $expectedType ('%type%') - The expected argument type
+/// @param {String} $expectedType ['%type%'] - The expected argument type
 /// @return {String} - The error message
 /// @example 
-///   validate-type(true, 'bool', argument-type-error('$myArgs', 'myFn()')
+///   validate-type($foo, 'string', argument-type-error('$foo', 'bar()')
 @function argument-type-error(
   $argumentName,
   $functionName,
   $expectedType: '%type%'
   ) {
+  $this: 'argument-type-error()';
+  @if no-error(
+    validate-type($argumentName, 'string', 'argument `$argumentName` of `#{$this}` must be a string'),
+    validate-type($functionName, 'string', 'argument `$functionName` of `#{$this}` must be a string'),
+    validate-type($expectedType, 'string', 'argument `$expectedType` of `#{$this}` must be a string')
+    ) {
+
+  
     @return 'argument `#{$argumentName}` of `#{$functionName}` must be a #{$expectedType}';
+
+  }
 }
