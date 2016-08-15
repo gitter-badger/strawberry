@@ -1,0 +1,16 @@
+@include describe('validate [function]') {
+
+  @include it('should return the expression value') {
+
+    @include assert-equal(
+      $assert: validate(1 != 0, 'error', true),
+      $expected: 1 != 0
+      );
+
+    @include assert-equal(
+      $assert: validate(1 == 0, 'error', true),
+      $expected: 1 == 0
+      );
+  }
+
+}

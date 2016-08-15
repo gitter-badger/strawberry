@@ -1,0 +1,30 @@
+
+
+@include describe('validate-type [function]') {
+
+  @include it('should return `true` if the value has the expected type') {
+
+    @include assert-true(
+      $assert: validate-type('Lorem ipsum dolor sit amet', 'string', 'error', true)
+      );
+  }
+
+  @include it('should return `false` if the value doesn\'t have the expected type') {
+
+    @include assert-false(
+      $assert: validate-type('Lorem ipsum dolor sit amet', 'number', 'error', true)
+      );
+  }
+
+  @include it('should handle generic types') {
+
+    @include assert-true(
+      $assert: validate-type((1, 2, 3), 'list<number>', 'error', true)
+      );
+
+    @include assert-true(
+      $assert: validate-type((#fff: 'foo'), 'map<color, string>', 'error', true)
+      );
+  }
+
+}

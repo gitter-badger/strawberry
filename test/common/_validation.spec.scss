@@ -1,0 +1,16 @@
+// ==========
+// Group test
+// ==========
+
+@include describe('validation') {
+
+  // Functions
+  // =========
+  
+  @import './validation/argument-type-error.function.spec';
+  @import './validation/argument-value-error.function.spec';
+  @import './validation/no-error.function.spec';
+  @import './validation/validate-type.function.spec';
+  @import './validation/validate.function.spec';
+
+}

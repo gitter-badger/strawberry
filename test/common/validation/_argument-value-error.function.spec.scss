@@ -1,0 +1,11 @@
+@include describe('argument-value-error [function]') {
+
+  @include it('should return a valid argument value error message') {
+
+    @include assert-equal(
+      $assert: argument-value-error('$foo', 'bar()', 0),
+      $expected: 'argument `$foo` of `bar()` can\'t be `0`'
+      );
+  }
+
+}

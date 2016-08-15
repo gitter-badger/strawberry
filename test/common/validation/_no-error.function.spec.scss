@@ -1,0 +1,17 @@
+@include describe('no-error [function]') {
+
+  @include it('should receive a unlimited number of arguments') {
+
+    @include assert-true(
+      $assert: no-error(null, null, null, null, null, null)
+      );
+  }
+
+  @include it('should return `true`') {
+
+    @include assert-true(
+      $assert: no-error(null)
+      );
+  }
+
+}
