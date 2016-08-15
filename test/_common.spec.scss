@@ -7,12 +7,12 @@
   // Groups
   // ======
 
-  // == String group ==
-
-  @import './common/string.spec';
-
   // == Validation group ==
 
   @import './common/validation.spec';
+
+  // == String group ==
+
+  @import './common/string.spec';
 
 }
