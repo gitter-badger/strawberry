@@ -10,13 +10,17 @@
     validate-type($variableName, 'string', argument-type-error('$variableName', 'get()'))
     ) {
 
-    // TODO(maximegelinas): Handles call on empty stack;
-
-    // Gets the variables of the current scope.
-    $scopeVariables: first($_scope-variables-stack);
+    // If we are not in a scope or the scope contains no variable.
+    @if $_scope-variables-stack == () {
+      @return null;
+    }
+    @else {
+      // Gets the variables of the current scope.
+      $scopeVariables: first($_scope-variables-stack);
     
-    // Returns the asked variable or null if it doesn't exist.
-    @return map-get($scopeVariables, $variableName);
+      // Returns the asked variable or null if it doesn't exist.
+      @return map-get($scopeVariables, $variableName);
+    }
 
   }
 }
