@@ -48,6 +48,7 @@ jspm_packages
 ### Sass ###
 .sass-cache/
 *.css.map
+.sass-lint.yml
 
 
 ### CSS ###
@@ -67,4 +68,5 @@ demo
 ### Documentation ###
 doc
 *.md
-.sassdocrc
+!README.md
+.sassdoc.yml
