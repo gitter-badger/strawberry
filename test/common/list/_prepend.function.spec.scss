@@ -1,0 +1,11 @@
+@include describe('prepend [function]') {
+
+  @include it('should add an element at the beginning of a list') {
+
+    @include assert-equal(
+      $assert: prepend(2 3 4, 1),
+      $expected: 1 2 3 4
+      );
+  }
+
+}

@@ -1,0 +1,11 @@
+@include describe('first [function]') {
+
+  @include it('should return the first element of a list') {
+
+    @include assert-equal(
+      $assert: first((1, 2, 3)),
+      $expected: 1
+      );
+  }
+
+}

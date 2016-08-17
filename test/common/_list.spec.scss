@@ -1,0 +1,15 @@
+// ==========
+// Group test
+// ==========
+
+@include describe('list') {
+
+  // Functions
+  // =========
+  
+  @import './list/first.function.spec';
+  @import './list/prepend.function.spec';
+  @import './list/remove-nth.function.spec';
+  @import './list/remove-first.function.spec';
+
+}

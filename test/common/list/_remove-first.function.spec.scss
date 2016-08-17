@@ -1,0 +1,11 @@
+@include describe('remove-first [function]') {
+
+  @include it('should remove the first element of a list') {
+
+    @include assert-equal(
+      $assert: remove-first(1 2 3 4 5),
+      $expected: 2 3 4 5
+      );
+  }
+
+}
