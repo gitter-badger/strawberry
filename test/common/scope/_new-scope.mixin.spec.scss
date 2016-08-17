@@ -1,0 +1,66 @@
+@include describe('new-scope [mixin]') {
+
+  // Add variables test
+  // ==================
+
+  @include it('should add the variables at the beginning of the stack') {
+
+    // == Arange ==
+
+    $_scope-variables-stack: ('bar': 2) ('foo': 1) !global;
+
+    // == Act ==
+
+    @include new-scope(('baz': 3)) {
+
+      // == Assert ==
+
+      @include assert-equal(
+        $assert: $_scope-variables-stack,
+        $expected: ('baz': 3) ('bar': 2) ('foo': 1)
+        );
+
+    }
+  }
+
+  // Remove variables test
+  // =====================
+
+  @include it('should remove the variables at the end of the process') {
+
+    // == Arange ==
+
+    $_scope-variables-stack: ('bar': 2) ('foo': 1) !global;
+
+    // == Act ==
+    
+    @include new-scope(('baz': 3)) { }
+
+    // == Assert ==
+    
+    @include assert-equal(
+      $assert: $_scope-variables-stack,
+      $expected: ('bar': 2) ('foo': 1)
+      );
+  }
+
+ // Output content test
+ // ===================
+
+ @include it('should output a content') {   
+
+    @include assert {
+
+      @include output {
+        @include new-scope(('baz': 3)) { 
+          color: blue;
+        }
+      }
+
+      @include expect {
+        color: blue;
+      }
+    }
+  }
+
+}

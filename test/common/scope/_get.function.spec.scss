@@ -1,0 +1,37 @@
+@include describe('get [function]') {
+
+  // Return variable test
+  // ====================
+
+  @include it('should return a variable from the current scope') {
+
+    // == Arange ==
+
+    $_scope-variables-stack: ('foo': 1) ('bar': 2) !global;
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: get('foo'),
+      $expected: 1
+      );
+  }
+
+  // Return null test
+  // ================
+
+  @include it('should return `null` if the scope contains no variable') {
+
+    // == Arange ==
+
+    $_scope-variables-stack: () !global;
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: get('foo'),
+      $expected: null
+      );
+  }
+
+}

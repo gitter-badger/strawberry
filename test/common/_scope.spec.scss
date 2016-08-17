@@ -1,0 +1,17 @@
+// ==========
+// Group test
+// ==========
+
+@include describe('scope') {
+
+  // Functions
+  // =========
+  
+  @import './scope/get.function.spec';
+
+  // Mixins
+  // ======
+
+  @import './scope/new-scope.mixin.spec';
+
+}
