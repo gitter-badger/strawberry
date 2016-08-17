@@ -60,6 +60,7 @@ test
 tests
 *.spec
 *.test
+.travis.*
 
 
 ### Demo ###
@@ -68,5 +69,4 @@ demo
 ### Documentation ###
 doc
 *.md
-!README.md
 .sassdoc.yml
