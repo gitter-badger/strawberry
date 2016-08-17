@@ -1,11 +1,17 @@
 @include describe('str-contains [function]') {
 
+  // Return `true` test
+  // ==================
+
   @include it('should return `true` if the string contains the searched string') {
 
     @include assert-true(
       $assert: str-contains('Lorem ipsum dolor sit amet', 's')
       );
   }
+
+  // Return `false` test
+  // ==================
 
   @include it('should return `false` if the string dosen\'t contains the searched string') {
 
@@ -14,6 +20,9 @@
       );
   }
 
+  // Many characters test
+  // ====================
+
   @include it('should work if the searched string has many characters') {
 
     @include assert-true(
@@ -21,12 +30,18 @@
       );
   }
 
+  // Long searched string test
+  // =========================
+
   @include it('should not work if the searched string is longer than the original string') {
 
     @include assert-false(
       $assert: str-contains('Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
       );
   }
+
+  // Equals strings test
+  // ===================
 
   @include it('should work if the strings are equal') {
 

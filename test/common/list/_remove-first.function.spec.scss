@@ -1,5 +1,8 @@
 @include describe('remove-first [function]') {
 
+  // Remove first test
+  // =================
+
   @include it('should remove the first element of a list') {
 
     @include assert-equal(

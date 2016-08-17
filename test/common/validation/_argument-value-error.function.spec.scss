@@ -1,5 +1,8 @@
 @include describe('argument-value-error [function]') {
 
+  // Valid message test
+  // ==================
+  
   @include it('should return a valid argument value error message') {
 
     @include assert-equal(

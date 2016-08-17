@@ -1,5 +1,8 @@
 @include describe('str-replace [function]') {
 
+  // One occurence test
+  // ==================
+
   @include it('should replace one occurence of the searched string') {
 
     @include assert-equal(
@@ -7,6 +10,9 @@
       $expected: 'Lorem ipsum dolor sit ***'
       );
   }
+
+  // All occurences test
+  // ===================
 
   @include it('should replace all occurences of the searched string') {
 
@@ -16,6 +22,9 @@
       );
   }
 
+  // No match test
+  // =============
+
   @include it('should return the original string if there is no match') {
 
     @include assert-equal(
@@ -23,6 +32,9 @@
       $expected: 'Lorem ipsum dolor sit amet'
       );
   }
+
+  // Empty string test
+  // =================
 
   @include it('should handle empty initial string') {
 

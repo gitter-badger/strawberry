@@ -1,5 +1,8 @@
 @include describe('first [function]') {
 
+  // Return first test
+  // =================
+
   @include it('should return the first element of a list') {
 
     @include assert-equal(

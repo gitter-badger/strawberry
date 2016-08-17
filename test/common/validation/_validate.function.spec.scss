@@ -1,5 +1,8 @@
 @include describe('validate [function]') {
 
+  // Return `$expression` test
+  // =========================
+
   @include it('should return the expression value') {
 
     @include assert-equal(

@@ -17,8 +17,8 @@
       );
   }
 
-  // Return null test
-  // ================
+  // Return `null` test
+  // ==================
 
   @include it('should return `null` if the scope contains no variable') {
 

@@ -1,5 +1,8 @@
 @include describe('argument-type-error [function]') {
 
+  // Valid message test
+  // ==================
+
   @include it('should return a valid argument type error message') {
 
     @include assert-equal(
@@ -7,6 +10,9 @@
       $expected: 'argument `$foo` of `bar()` must be a string'
       );
   }
+
+  // Third argument test
+  // ===================
 
   @include it('should initialise the third argument with a default value of \'%type%\'') {
 
