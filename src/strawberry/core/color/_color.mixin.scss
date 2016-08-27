@@ -15,12 +15,16 @@
       ('base-color': $name)
       ) {  
 
+      
+      // If the color already exists
+      @if map-has-key($_colors, $name) {
+        // throw an error.
+        @error 'color `#{$name}` can\'t be declared twice'
+      }
 
       // Creates the new color map with some default variants.
       $newColor: (
-        'base': $code,
-        'light': mix(white, $code, 10%),
-        'dark': mix(black, $code, 10%) 
+        'base': $code
       );
 
       // Adds the new color to the color list.

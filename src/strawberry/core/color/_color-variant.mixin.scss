@@ -15,8 +15,20 @@
     // Gets the base color name from the scope.
     $baseColorName: get('base-color');
 
-    // Gets the base color from the color name.
+    // Gets the base color from the base color name.
     $baseColor: map-get($_colors, $baseColorName);
+
+    // If the base color doesn't exists
+    @if $baseColor == null {
+      // throw an error.
+      @error 'can\'t add variant `#{$name}` to an undefined color';
+    }
+
+    // If the color variant already exists
+    @if get-color($baseColorName, $name) != null {
+      // throw an error.
+      @error 'variant `#{$name}` of color `#{baseColorName}` can\'t be declared twice';
+    }
 
     // Creates the new color variant map.
     $newColorVariant: (

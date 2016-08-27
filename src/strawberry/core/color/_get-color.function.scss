@@ -18,7 +18,7 @@
     $color: map-get($_colors, $name);
 
     // Gets the color code.
-    $color: map-get($color, $variant);
+    $color: if($color != null, map-get($color, $variant), null);
 
     @return $color;
 
