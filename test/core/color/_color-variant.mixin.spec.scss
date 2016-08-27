@@ -1,0 +1,35 @@
+@include describe('color-variant [mixin]') {
+
+  // Add color variant test
+  // ======================
+
+  @include it('should add the variant to the color') {
+
+    // == Arange ==
+
+    $_colors: (
+      'primary': (
+        'base': blue
+        )    
+      ) !global; 
+
+    $_scope-variables-stack: ('base-color': 'primary') () !global; 
+
+    // == Act ==
+
+    @include color-variant('light', cyan);
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: $_colors,
+      $expected: (
+        'primary': (
+          'base': blue,
+          'light': cyan
+          )
+        )
+      );
+  }
+
+}

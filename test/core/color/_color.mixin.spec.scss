@@ -1,0 +1,53 @@
+@include describe('color [mixin]') {
+
+  // Add color test
+  // ==============
+
+  @include it('should add the color to the list') {
+
+    // == Arange ==
+
+    $_colors: () !global; 
+
+    // == Act ==
+
+    @include color('primary', blue);
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: $_colors,
+      $expected: (
+        'primary': (
+          'base': blue
+          )
+        )
+      );
+  }
+
+ // Output content test
+ // ===================
+
+ @include it('should accept a content') {   
+
+    // == Arange ==
+
+    $_colors: () !global; 
+
+    // == Assert ==
+
+    @include assert {
+
+      @include output {
+        @include color('primary', blue) { 
+          color: blue;
+        }
+      }
+
+      @include expect {
+        color: blue;
+      }
+    }
+  }
+
+}

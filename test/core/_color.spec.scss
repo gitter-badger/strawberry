@@ -1,0 +1,18 @@
+// ==========
+// Group test
+// ==========
+
+@include describe('color') {
+
+  // Functions
+  // =========
+  
+  @import './color/get-color.function.spec';
+
+  // Mixins
+  // ======
+
+  @import './color/color.mixin.spec';
+  @import './color/color-variant.mixin.spec';
+
+}

@@ -1,0 +1,63 @@
+@include describe('get-color [function]') {
+
+  // Return color test
+  // =================
+
+  @include it('should return the color') {
+
+    // == Arange ==
+
+    $_colors: (
+      'primary': (
+        'base': blue
+        )
+      ) !global; 
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: get-color('primary'),
+      $expected: blue
+      );
+  }
+
+  // Return color variant test
+  // =========================
+
+  @include it('should return the color variant') {
+
+    // == Arange ==
+
+    $_colors: (
+      'primary': (
+          'base': blue,
+          'light': cyan
+        )
+      ) !global; 
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: get-color('primary', 'light'),
+      $expected: cyan
+      );
+  }
+
+  // Unexisting color test
+  // =====================
+
+  @include it('should return `null` if the color doesn\'t exists') {
+
+    // == Arange ==
+
+    $_colors: () !global; 
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: get-color('primary', 'light'),
+      $expected: null
+      );
+  }
+
+}
