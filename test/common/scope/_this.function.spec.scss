@@ -1,0 +1,20 @@
+@include describe('this [function]') {
+
+  // Return entity test
+  // ==================
+
+  @include it('should return the entity where we are') {
+
+    // == Arange ==
+
+    $_scope-variables-stack: ('_this': ('foo': 1)) () !global;
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: this(),
+      $expected: ('foo': 1)
+      );
+  }
+
+}

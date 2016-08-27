@@ -1,0 +1,20 @@
+@include describe('base [function]') {
+
+  // Return entity test
+  // ==================
+
+  @include it('should return the parent entity') {
+
+    // == Arange ==
+
+    $_scope-variables-stack: ('_base': ('foo': 1)) () !global;
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: base(),
+      $expected: ('foo': 1)
+      );
+  }
+
+}
