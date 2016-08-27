@@ -15,11 +15,15 @@
     validate-type($declarations, 'map', argument-type-error('$declarations', 'new-component()'))
     ) {
     @include new-scope(
-        (componentName: $name)
+        (_componentName: $name)
         ) {
 
-          
-        // TODO(maximegelinas): Makes sure that the component doesn't exist yet.
+        
+        // If the component already exists
+        @if map-has-key(_get-component($name), 'selector') {
+          // throw an error.
+          @error 'component `#{$name}` can\'t be declared twice';
+        }
 
         // Overrides the existing component and get the result.
         $component: _set-component($name, $selector, $declarations);
