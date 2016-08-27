@@ -1,0 +1,20 @@
+/// Returns the entity where we are.
+/// @access public
+/// @group common
+/// @return {*} - The entity
+@function this() {
+  $this: 'this()';
+  @if no-error(
+    ) {
+
+
+    $entity: get('_this');
+
+    @if $entity == null {
+      @error '`#{$this}` function can\'t be used outside of a entity';
+    }
+
+    @return $entity;
+
+  }
+}

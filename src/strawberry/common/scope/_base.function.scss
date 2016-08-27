@@ -1,0 +1,20 @@
+/// Returns the parent entity.
+/// @access public
+/// @group common
+/// @return {*} - The entity
+@function base() {
+  $this: 'base()';
+  @if no-error(
+    ) {
+
+
+    $parentEntity: get('_base');
+
+    @if $parentEntity == null {
+      @error '`#{$this}` function can\'t be used outside of a nested entity';
+    }
+
+    @return $parentEntity;
+
+  }
+}
