@@ -1,0 +1,13 @@
+// ==========
+// Group test
+// ==========
+
+@include describe('media') {
+
+  // Mixins
+  // ======
+
+  @import './media/media.mixin.spec';
+  @import './media/media-response.mixin.spec';
+
+}

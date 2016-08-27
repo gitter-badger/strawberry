@@ -1,0 +1,26 @@
+@include describe('media [mixin]') {
+
+  // Add media test
+  // ==============
+
+  @include it('should add the media to the list') {
+
+    // == Arange ==
+
+    $_medias: () !global; 
+
+    // == Act ==
+
+    @include media('tablets and up', 'only screen and (min-width: 768px)');
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: $_medias,
+      $expected: (
+        'tablets and up': 'only screen and (min-width: 768px)'
+        )
+      );
+  }
+
+}

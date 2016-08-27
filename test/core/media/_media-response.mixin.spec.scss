@@ -1,0 +1,32 @@
+@include describe('media-response [mixin]') {
+
+  // Output media test
+  // ===================
+
+  @include it('should accept a content') {   
+
+    // == Arange ==
+
+    $_medias: (
+      'tablets and up': 'only screen and (min-width: 768px)'
+      ) !global; 
+
+    // == Assert ==
+
+    @include assert {
+
+      @include output {
+        @include media-response('tablets and up') { 
+          color: blue;
+        }
+      }
+
+      @include expect {
+        @media only screen and (min-width: 768px) {
+          color: blue;
+        }
+      }
+    }
+  }
+
+}
