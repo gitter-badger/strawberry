@@ -1,0 +1,17 @@
+// ==========
+// Group test
+// ==========
+
+@include describe('font') {
+
+  // Functions
+  // =========
+  
+  @import './font/get-font.function.spec';
+
+  // Mixins
+  // ======
+
+  @import './font/font.mixin.spec';
+
+}

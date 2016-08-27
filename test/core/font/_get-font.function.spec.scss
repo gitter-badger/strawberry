@@ -1,0 +1,22 @@
+@include describe('get-font [function]') {
+
+  // Return color test
+  // =================
+
+  @include it('should return the font') {
+
+    // == Arange ==
+
+    $_fonts: (
+      'primary': '"Roboto", sans-serif'
+      ) !global; 
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: get-font('primary'),
+      $expected: '"Roboto", sans-serif'
+      );
+  }
+
+}

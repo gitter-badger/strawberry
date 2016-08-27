@@ -1,0 +1,26 @@
+@include describe('font [mixin]') {
+
+  // Add color test
+  // ==============
+
+  @include it('should add the font to the list') {
+
+    // == Arange ==
+
+    $_fonts: () !global; 
+
+    // == Act ==
+
+    @include font('primary', '"Roboto", sans-serif');
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: $_fonts,
+      $expected: (
+        'primary': '"Roboto", sans-serif'
+        )
+      );
+  }
+
+}
