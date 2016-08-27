@@ -1,0 +1,64 @@
+@include describe('_get-component-variants [function]') {
+
+  // Return variants test
+  // =====================
+
+  @include it('should return the component variants') {
+
+    // == Arange ==
+
+    $_components: (
+      'foo': (
+        'variants': (
+          'default': (
+            'selector': '',
+            'declarations': ('color': red)
+            ),
+          'primary': (
+            'selector': '.primary',
+            'declarations': ('color': green)
+            )
+          )          
+        )
+      ) !global; 
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: _get-component-variants('foo'),
+      $expected: (
+          'default': (
+            'selector': '',
+            'declarations': ('color': red)
+            ),
+          'primary': (
+            'selector': '.primary',
+            'declarations': ('color': green)
+            )
+          )       
+      );
+  }
+
+  // No variants test
+  // ================
+
+  @include it('should return a empty map if the component doesn\'t has variants') {
+
+    // == Arange ==
+
+    $_components: (
+      'foo': (
+        'selector': '.foo',
+        'declarations': ('color': blue)
+        )
+      ) !global; 
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: _get-component-variants('foo'),
+      $expected: ()
+      );
+  }
+
+}

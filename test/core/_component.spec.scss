@@ -1,0 +1,26 @@
+// ==========
+// Group test
+// ==========
+
+@include describe('component') {
+
+  // Functions
+  // =========
+  
+  @import './component/get-component.function.spec';
+  @import './component/set-component.function.spec';
+
+  // Mixins
+  // ======
+
+  @import './component/component.mixin.spec';
+  @import './component/new-component.mixin.spec';
+  @import './component/static.mixin.spec';
+  @import './component/dynamic.mixin.spec';
+
+  // Groups
+  // ======
+
+  @import './component/variant.spec';
+
+}

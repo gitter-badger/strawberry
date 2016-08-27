@@ -1,0 +1,39 @@
+@include describe('_get-component [function]') {
+
+  // Return component test
+  // =====================
+
+  @include it('should return a component') {
+
+    // == Arange ==
+
+    $_components: (
+      'foo': (
+        'selector': '.foo',
+        'declarations': ('color': blue)
+        )
+      ) !global; 
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: _get-component('foo'),
+      $expected: (
+        'selector': '.foo',
+        'declarations': ('color': blue)
+        )
+      );
+  }
+
+  // Return empty map test
+  // =====================
+
+  @include it('should return an empty map if the component doesn\'t exists') {
+
+    @include assert-equal(
+      $assert: _get-component('bar'),
+      $expected: ()
+      );
+  }
+
+}

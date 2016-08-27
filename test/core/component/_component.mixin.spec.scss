@@ -1,0 +1,89 @@
+@include describe('component [mixin]') {
+
+ // Create component test
+ // =====================
+
+ @include it('should create a new blank component') {
+
+    // == Arange ==
+
+    $_components: () !global;
+
+    // == Act ==
+
+    @include component('foo');
+
+    // == Assert ==
+
+    @include assert-true(
+      $assert: map-has-key($_components, 'foo')
+      );
+ }
+
+ @include it('should add a default variant with the declarations') {
+   // == Arange ==
+
+   $_components: () !global;
+   
+   // == Act ==
+
+   @include component('foo', ('color': blue));
+
+   // == Assert ==
+
+   @include assert-equal(
+     $assert: $_components,
+     $expected: (
+       'foo': (
+         'variants': (
+           'default': (  
+             'selector': '',
+             'declarations': (
+               'color': blue
+               )
+             )
+           )
+         )
+       )
+     );
+ }   
+
+ // Add scope variables test
+ // ========================
+
+ @include it('should add the component name to the scope') {
+
+    // == Act ==
+
+    @include component('foo') {
+
+      // == Assert ==
+
+      @include assert-equal(
+        $assert: get('_componentName'),
+        $expected: 'foo'
+        );
+
+    }
+ }
+
+ // Output content test
+ // ===================
+
+ @include it('should output a content') {   
+
+    @include assert {
+
+      @include output {
+        @include component('foo') { 
+          color: blue;
+        }
+      }
+
+      @include expect {
+        color: blue;
+      }
+    }
+  }
+
+}

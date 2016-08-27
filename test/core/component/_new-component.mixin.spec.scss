@@ -1,0 +1,56 @@
+@include describe('new-component [mixin]') {
+
+ // Create component test
+ // =====================
+
+ @include it('should create a new component with a selector and declarations') {
+
+    // == Arange ==
+
+    $_components: () !global;
+
+    // == Act ==
+
+    @include new-component('foo', '.foo', ('color': blue));
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: $_components,
+      $expected: (
+       'foo': (
+         'selector': '.foo',
+         'declarations': (
+           'color': blue
+           )
+         )         
+       )
+      );
+ }
+
+ // Output content test
+ // ===================
+
+ @include it('should output a content under the received selector') {   
+
+    // == Arange ==
+
+    $_components: () !global;
+
+    // == Assert ==
+
+    @include assert {
+
+      @include output {
+        @include new-component('foo', '.foo', ('color': blue)) { 
+          color: blue;
+        }
+      }
+
+      @include expect {
+        .foo { color: blue; }
+      }
+    }
+  }
+
+}

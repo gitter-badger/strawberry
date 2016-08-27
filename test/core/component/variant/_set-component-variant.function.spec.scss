@@ -1,0 +1,96 @@
+@include describe('_set-component-variant [function]') {
+
+  // Add variant test
+  // ================
+
+  @include it('should add a variant to a component') {
+
+    // == Arange ==
+
+    $_components: (
+      'foo': (
+        'variants': ()          
+        )
+      ) !global; 
+
+    // == Act ==
+
+    $variant: _set-component-variant('foo', 'primary', '.primary', ('color': red));
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: $_components,
+      $expected: (
+        'foo': (
+          'variants': (
+            'primary': (
+              'selector': '.primary',
+              'declarations': ('color': red)
+              )
+            )          
+          )       
+        )
+      );  
+  }
+
+  // Edit variant test
+  // =================
+
+  @include it('should edit an existing variant') {
+
+    // == Arange ==
+
+    $_components: (
+      'foo': (
+        'variants': (
+          'primary': (
+            'selector': '.primary',
+            'declarations': ('color': red)
+            )
+          )          
+        )
+      ) !global; 
+
+    // == Act ==
+
+    $variant: _set-component-variant('foo', 'primary', '[-primary]', ('color': blue));
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: $_components,
+      $expected: (
+        'foo': (
+          'variants': (
+            'primary': (
+              'selector': '[-primary]',
+              'declarations': ('color': blue)
+              )
+            )          
+          )
+        )
+      );
+  }
+
+  // Return edited component test
+  // ============================
+
+  @include it('should return the edited variant') {
+
+    // == Arange ==
+
+    $_components: () !global; 
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: _set-component-variant('foo', 'primary', '.primary', ('color': red)),
+      $expected: (
+        'selector': '.primary',
+        'declarations': ('color': red)
+        )
+      );
+  }
+
+}

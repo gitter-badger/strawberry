@@ -1,0 +1,19 @@
+// ==========
+// Group test
+// ==========
+
+@include describe('variant') {
+
+  // Functions
+  // =========
+  
+  @import './variant/get-component-variants.function.spec';
+  @import './variant/get-component-variant.function.spec';
+  @import './variant/set-component-variant.function.spec';
+
+  // Mixins
+  // ======
+
+  @import './variant/component-variant.mixin.spec';
+    
+}

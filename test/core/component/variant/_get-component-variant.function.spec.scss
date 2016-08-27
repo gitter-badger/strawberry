@@ -1,0 +1,78 @@
+@include describe('_get-component-variant [function]') {
+
+  // Return variants test
+  // =====================
+
+  @include it('should return the component variant') {
+
+    // == Arange ==
+
+    $_components: (
+      'foo': (
+        'variants': (
+          'default': (
+            'selector': '',
+            'declarations': ('color': red)
+            ),
+          'primary': (
+            'selector': '.primary',
+            'declarations': ('color': green)
+            )
+          )          
+        )
+      ) !global; 
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: _get-component-variant('foo', 'primary'),
+      $expected: (
+        'selector': '.primary',
+        'declarations': ('color': green)
+        )       
+      );
+  }
+
+  // No variants test
+  // ================
+
+  @include it('should return a empty map if the component doesn\'t has variants') {
+
+    // == Arange ==
+
+    $_components: (
+      'foo': ()
+      ) !global; 
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: _get-component-variant('foo', 'primary'),
+      $expected: ()
+      );
+  }
+
+  // Variant doesn't exists test
+  // ===========================
+
+  @include it('should return a empty map if the variant doesn\'t exist') {
+
+    // == Arange ==
+
+    $_components: (
+      'foo': (
+        'variants': (
+          'primary': ('color': red)
+          )
+        )
+      ) !global; 
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: _get-component-variant('foo', 'unexisting'),
+      $expected: ()
+      );
+  }
+
+}

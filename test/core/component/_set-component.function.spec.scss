@@ -1,0 +1,82 @@
+@include describe('_set-component [function]') {
+
+  // Add component test
+  // ==================
+
+  @include it('should add a component to the list') {
+
+    // == Arange ==
+
+    $_components: () !global; 
+
+    // == Act ==
+
+    $component: _set-component('foo', '.foo', ('color': blue));
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: $_components,
+      $expected: (
+        'foo': (
+          'selector': '.foo',
+          'declarations': ('color': blue)
+          ) 
+        )
+      );
+  }
+
+  // Edit component test
+  // ===================
+
+  @include it('should edit an existing component') {
+      
+    // == Arange ==
+
+    $_components: (
+      'foo': (
+        'selector': '.foo',
+        'declarations': ('color': blue),
+        'variants': ()
+        )
+      ) !global; 
+
+    // == Act ==
+
+    $component: _set-component('foo', '#foo');
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: $_components,
+      $expected: (
+        'foo': (
+          'selector': '#foo',
+          'declarations': ('color': blue),
+          'variants': ()
+          ) 
+        )
+      );
+  }
+
+  // Return edited component test
+  // ============================
+
+  @include it('should return the edited component') {
+
+    // == Arange ==
+
+    $_components: () !global; 
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: _set-component('foo', '.foo', ('color': blue)),
+      $expected: (
+        'selector': '.foo',
+        'declarations': ('color': blue)
+        )
+      );
+  }
+
+}

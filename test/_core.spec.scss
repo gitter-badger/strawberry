@@ -1,0 +1,14 @@
+// ===========
+// Group tests
+// ===========
+
+@include describe('core') {
+
+  // Groups
+  // ======
+
+  // == Component group ==
+
+  @import './core/component.spec';
+
+}

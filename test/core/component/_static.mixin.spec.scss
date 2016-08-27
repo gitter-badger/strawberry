@@ -1,0 +1,24 @@
+@include describe('static [mixin]') {
+
+ // Output content test
+ // ===================
+
+ @include it('should output a content under the parent block') {   
+
+    @include assert {
+
+      @include output {
+        .foo {
+          @include static() { 
+            color: blue;
+          }
+        }  
+      }
+
+      @include expect {
+        .foo { color: blue; }
+      }
+    }
+  }
+
+}

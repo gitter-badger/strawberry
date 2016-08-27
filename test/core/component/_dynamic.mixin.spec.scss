@@ -1,0 +1,82 @@
+@include describe('dynamic [mixin]') {
+
+ // With variants test
+ // ==================
+
+ @include it('should handle a component without variant') {   
+   
+   // == Arange ==
+
+    $_components: (
+      'foo': (
+        'selector': '.foo',
+        'declarations': ('color': blue),
+        'variants': (
+          'default': (
+            'selector': '',
+            'declarations': ('color': red)
+            ),
+          'primary': (
+            'selector': '.primary',
+            'declarations': ('color': green)
+            )
+          )          
+        )
+      ) !global; 
+
+    $_scope-variables-stack: ('_componentName': 'foo') () !global; 
+
+    // == Assert ==
+
+    @include assert {
+
+      @include output {
+        .foo {
+          @include dynamic() { 
+            color: get('color');
+          }
+        }  
+      }
+
+      @include expect {
+        .foo { color: red; }
+        .foo.primary { color: green; }
+      }
+    }
+ }
+
+ // Without variant test
+ // ====================
+
+ @include it('should handle a component without variant') {   
+
+    // == Arange ==
+
+    $_components: (
+      'foo': (
+        'selector': '.foo',
+        'declarations': ('color': blue)
+        )
+      ) !global; 
+
+    $_scope-variables-stack: ('_componentName': 'foo') () !global;
+
+    // == Assert ==
+
+    @include assert {
+
+      @include output {
+        .foo {
+          @include dynamic() { 
+            color: get('color');
+          }
+        }  
+      }
+
+      @include expect {
+        .foo { color: blue; }
+      }
+    }
+  }
+
+}
