@@ -3,29 +3,36 @@
 /// @access public
 /// @group core
 @mixin dynamic {
-  $componentName: get('componentName');
+  $componentName: get('_componentName');
 
   $componentDeclarations: map-get(_get-component($componentName), 'declarations');
 
   // Gets the variant declarations.
   $componentVariants: _get-component-variants($componentName);
 
-  // Loops through the component variants.
-  @each $variantName, $variant in $componentVariants {
-    // Gets the current variant selector.
-    $variantSelector: map-get($variant, 'selector');
-
-    // Gets the current variant declarations.
-    $variantDeclarations: map-get($variant, 'declarations');
-     
-    // Merges the default declarations with the variant declarations.
-    $mergedDeclarations: map-merge($componentDeclarations, $variantDeclarations); 
-    
-    // Creates a new scope containing the appropriate declarations.
-    @include new-scope(if($variantName == 'default', $mergedDeclarations, $variantDeclarations)) {
-      &#{$variantSelector} {
-        // Outputs the CSS for the current variant.
-        @content;
+  @if $componentVariants == () {
+    @include new-scope($componentDeclarations) {
+       @content;
+    }
+  }
+  @else {
+    // Loops through the component variants.
+    @each $variantName, $variant in $componentVariants {
+      // Gets the current variant selector.
+      $variantSelector: map-get($variant, 'selector');
+  
+      // Gets the current variant declarations.
+      $variantDeclarations: map-get($variant, 'declarations');
+       
+      // Merges the default declarations with the variant declarations.
+      $mergedDeclarations: map-merge($componentDeclarations, $variantDeclarations); 
+      
+      // Creates a new scope containing the appropriate declarations.
+      @include new-scope(if($variantName == 'default', $mergedDeclarations, $variantDeclarations)) {
+        &#{$variantSelector} {
+          // Outputs the CSS for the current variant.
+          @content;
+        }
       }
     }
   }
