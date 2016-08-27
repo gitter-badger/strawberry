@@ -8,14 +8,14 @@
     // == Arange ==
 
     $_fonts: (
-      'primary': '"Roboto", sans-serif'
+      'primary': 'italic bold medium/normal Georgia, serif'
       ) !global; 
 
     // == Assert ==
 
     @include assert-equal(
       $assert: get-font('primary'),
-      $expected: '"Roboto", sans-serif'
+      $expected: 'italic bold medium/normal Georgia, serif'
       );
   }
 
