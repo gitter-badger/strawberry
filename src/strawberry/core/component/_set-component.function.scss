@@ -16,16 +16,16 @@
     validate-type($declarations, 'map', argument-type-error('$declarations', '_set-component()'))
     ) {
 
+    // Initialises the new component map.
+    $newComponent: ();
 
-    @if ($declarations == (null:null)) {
-      $declarations: ();
+    @if ($selector != '') {
+      $newComponent: map-merge($newComponent, (selector: $selector));
     }
 
-    // Creates the new component map.
-    $newComponent: (
-      selector: $selector,
-      declarations: $declarations
-    );
+    @if ($declarations != (null:null)) {
+      $newComponent: map-merge($newComponent, (declarations: $declarations));
+    }
 
     // Merges the new component with the existing one.
     $mergedComponent: map-merge(_get-component($name), $newComponent);

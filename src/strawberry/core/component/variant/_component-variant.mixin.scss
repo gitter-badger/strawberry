@@ -16,9 +16,13 @@
     ) {
 
 
-    $componentName: get('componentName');
+    $componentName: get('_componentName');
 
-    // TODO(maximegelinas): Makes shure than the variant doesn't exist.
+    // If the variant already exists
+    @if _get-component-variant($componentName, $name) != () {
+      // throw an error.
+      @error 'variant `#{$name}` of component `#{$componentName}` can\'t be declared twice';
+    }
 
     $newVariant: _set-component-variant($componentName, $name, $selector, $declarations);
 
