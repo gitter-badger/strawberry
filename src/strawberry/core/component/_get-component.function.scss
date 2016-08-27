@@ -13,7 +13,7 @@
 
     $component: map-get($_components, $name);
 
-    // If the component exist
+    // If the component doesn't exists.
     @if ($component == null) {
         $component: ();
     }

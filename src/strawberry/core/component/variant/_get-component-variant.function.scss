@@ -28,7 +28,7 @@
         // Gets the variant by its name.
         $variant: map-get($componentVariants, $variantName);
 
-        // If the variant exist
+        // If the variant doesn't exists
         @if ($variant == null) {
             $variant: ();
         }

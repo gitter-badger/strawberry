@@ -11,11 +11,6 @@
     ) {
 
 
-    // Validates if $componentName is a string.
-    @if (type-of($componentName) != 'string') {
-        @error argument-type-error('$componentName', '_get-component-variants($componentName)', 'string');
-    }
-
     // Gets the component.
     $component: _get-component($componentName);
     

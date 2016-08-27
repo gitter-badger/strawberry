@@ -12,7 +12,7 @@
     validate-type($declarations, 'map', argument-type-error('$declarations', 'component()'))
     ) {
     @include new-scope(
-      (componentName: $name)
+      (_componentName: $name)
       ) {
   
   
