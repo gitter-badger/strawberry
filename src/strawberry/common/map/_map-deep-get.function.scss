@@ -1,0 +1,30 @@
+/// Returns a deeply nested value from a map.
+/// @access public
+/// @group common
+/// @param {Map} $map - The map containing the value
+/// @param {List} $keys - The keys chain to access the value
+/// @return {*} - The nested value
+@function map-deep-get(
+  $map,
+  $keys
+  ) {
+  $this: 'map-deep-get()';
+  @if no-error(
+    validate-type($map, 'map', argument-type-error('$map', $this)),
+    validate-type($keys, 'list', argument-type-error('$keys', $this))
+    ) {
+
+
+    @each $key in $keys {
+        @if type-of($map) == 'map' and map-has-key($map, $key) {
+          $map: map-get($map, $key);
+        }
+        @else {
+            @return null;
+        }
+    }
+
+    @return $map;
+
+  }
+}

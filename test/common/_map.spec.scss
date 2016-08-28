@@ -1,0 +1,12 @@
+// ==========
+// Group test
+// ==========
+
+@include describe('map') {
+
+  // Functions
+  // =========
+  
+  @import './map/map-deep-get.function.spec';
+
+}

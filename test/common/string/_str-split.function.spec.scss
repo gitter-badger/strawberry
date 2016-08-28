@@ -1,0 +1,36 @@
+@include describe('str-split [function]') {
+
+  // Return substrings test
+  // ======================
+
+  @include it('should split a string into an list') {
+
+    @include assert-equal(
+      $assert: str-split('foo,bar,baz', ','),
+      $expected: 'foo' 'bar' 'baz'
+      );
+  }
+
+  // Default delimiter test
+  // ======================
+
+  @include it('should handle empty delimiter') {
+
+    @include assert-equal(
+      $assert: str-split('foo'),
+      $expected: 'f' 'o' 'o'
+      );
+  }
+
+  // No delimiter test
+  // =================
+
+  @include it('should return 1 element if 0 delimiter are found') {
+
+    @include assert-equal(
+      $assert: length(str-split('foo', ',')),
+      $expected: 1
+      );
+  }
+
+}

@@ -1,6 +1,7 @@
 /// <reference path="./string/_str-contains.function.scss" />
 /// <reference path="./string/_str-ends-with.function.scss" />
 /// <reference path="./string/_str-replace.function.scss" />
+/// <reference path="./string/_str-split.function.scss" />
 
 
 // =============
@@ -13,3 +14,4 @@
 @import './string/str-ends-with.function';
 @import './string/str-contains.function';
 @import './string/str-replace.function';
+@import './string/str-split.function';
