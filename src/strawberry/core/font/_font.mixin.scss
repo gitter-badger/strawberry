@@ -3,8 +3,8 @@
 /// @group core
 /// @param {String} $name - The font name
 /// @param {String} $family - The `font-family` property
-/// @param {String} $style - The `font-style` property
-/// @param {String} $weight - The `font-weight` property
+/// @param {String} $style ['normal'] - The `font-style` property
+/// @param {String} $weight ['normal'] - The `font-weight` property
 @mixin font(
   $name,
   $family,
