@@ -1,13 +1,14 @@
 /// Returns a variable from the current scope.
 /// @access public
 /// @group common
-/// @param {string} $variableName - The name of the variable to get
+/// @param {String} $variablePath - The path of the variable to get
 /// @return {*} - The scope variable
 @function get(
-  $variableName
+  $variablePath
   ) {
+  $this: 'get()';
   @if no-error(
-    validate-type($variableName, 'string', argument-type-error('$variableName', 'get()'))
+    validate-type($variablePath, 'string', argument-type-error('$variablePath', $this))
     ) {
 
     // If we are not in a scope or the scope contains no variable.
@@ -19,7 +20,7 @@
       $scopeVariables: first($_scope-variables-stack);
     
       // Returns the asked variable or null if it doesn't exist.
-      @return map-get($scopeVariables, $variableName);
+      @return map-deep-get($scopeVariables, str-split($variablePath, ':'));
     }
 
   }

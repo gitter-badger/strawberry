@@ -1,14 +1,22 @@
 /// Returns the entity where we are.
 /// @access public
 /// @group common
+/// @param {String} $variablePath [''] - The path of the variable to get
 /// @return {*} - The entity
-@function this() {
+@function this(
+  $variablePath: ''
+  ) {
   $this: 'this()';
   @if no-error(
+    validate-type($variablePath, 'string', argument-type-error('$variablePath', $this))
     ) {
 
 
-    $entity: get('_this');
+    @if $variablePath != '' {
+      $variablePath: ':#{$variablePath}';
+    }
+
+    $entity: get('_this#{$variablePath}');
 
     @if $entity == null {
       @error '`#{$this}` function can\'t be used outside of a entity';

@@ -1,14 +1,22 @@
 /// Returns the parent entity.
 /// @access public
 /// @group common
+/// @param {String} $variablePath [''] - The path of the variable to get
 /// @return {*} - The entity
-@function base() {
+@function base(
+  $variablePath: ''
+  ) {
   $this: 'base()';
   @if no-error(
+    validate-type($variablePath, 'string', argument-type-error('$variablePath', $this))
     ) {
 
 
-    $parentEntity: get('_base');
+    @if $variablePath != '' {
+      $variablePath: ':#{$variablePath}';
+    }
+
+    $parentEntity: get('_base#{$variablePath}');
 
     @if $parentEntity == null {
       @error '`#{$this}` function can\'t be used outside of a nested entity';

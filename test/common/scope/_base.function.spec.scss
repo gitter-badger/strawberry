@@ -17,4 +17,21 @@
       );
   }
 
+  // Deep get test
+  // =============
+
+  @include it('should handle deep get') {
+
+    // == Arange ==
+
+    $_scope-variables-stack: ('_base': ('foo': ('bar': 1))) ('baz': 2) !global;
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: base('foo:bar'),
+      $expected: 1
+      );
+  }
+
 }

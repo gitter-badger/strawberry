@@ -17,8 +17,8 @@
       );
   }
 
-  // Return `null` test
-  // ==================
+  // No variable test
+  // ================
 
   @include it('should return `null` if the scope contains no variable') {
 
@@ -31,6 +31,23 @@
     @include assert-equal(
       $assert: get('foo'),
       $expected: null
+      );
+  }
+
+  // Deep get test
+  // =============
+
+  @include it('should handle deep get') {
+
+    // == Arange ==
+
+    $_scope-variables-stack: ('foo': ('bar': ('baz': 1))) ('qux': 2) !global;
+
+    // == Assert ==
+
+    @include assert-equal(
+      $assert: get('foo:bar:baz'),
+      $expected: 1
       );
   }
 
