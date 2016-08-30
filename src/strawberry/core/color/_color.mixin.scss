@@ -11,27 +11,27 @@
     validate-type($name, 'string', argument-type-error('$name', 'color()')),
     validate-type($code, 'color', argument-type-error('$code', 'color()'))
     ) {
-    @include new-scope(
-      ('base-color': $name)
-      ) {  
+    
 
       
-      // If the color already exists
-      @if map-has-key($_colors, $name) {
-        // throw an error.
-        @error 'color `#{$name}` can\'t be declared twice'
-      }
-
-      // Creates the new color map with some default variants.
-      $newColor: (
-        'base': $code
-      );
-
-      // Adds the new color to the color list.
-      $_colors: map-merge($_colors, ($name: $newColor)) !global;
-
-      @content;
-
+    // If the color already exists
+    @if map-has-key($_colors, $name) {
+      // throw an error.
+      @error 'color `#{$name}` can\'t be declared twice'
     }
+
+    // Creates the new color map with some default variants.
+    $newColor: (
+      'base': $code
+    );
+
+    // Adds the new color to the color list.
+    $_colors: map-merge($_colors, ($name: $newColor)) !global;
+
+    // Makes the parameters accessible from the `base` function.
+    @include new-scope(('_base': ('name': $name, 'code': $code))) {
+      @content;
+    }
+
   }
 }

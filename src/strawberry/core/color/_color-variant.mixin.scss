@@ -12,10 +12,10 @@
     validate-type($code, 'color', argument-type-error('$code', 'color-variant()'))
     ) {
 
-    // Gets the base color name from the scope.
-    $baseColorName: get('base-color');
 
-    // Gets the base color from the base color name.
+    // Gets the base color name from the scope.
+    $baseColorName: base('name');
+    // Gets the base color code.
     $baseColor: map-get($_colors, $baseColorName);
 
     // If the base color doesn't exists

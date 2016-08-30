@@ -16,7 +16,7 @@
     ) {
 
 
-    $componentName: get('_componentName');
+    $componentName: base('name');
 
     // If the variant already exists
     @if _get-component-variant($componentName, $name) != () {

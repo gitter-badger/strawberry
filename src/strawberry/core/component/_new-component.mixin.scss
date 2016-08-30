@@ -14,25 +14,25 @@
     validate-type($selector, 'string', argument-type-error('$selector', 'new-component()')),
     validate-type($declarations, 'map', argument-type-error('$declarations', 'new-component()'))
     ) {
-    @include new-scope(
-        (_componentName: $name)
-        ) {
+
 
         
-        // If the component already exists
-        @if map-has-key(_get-component($name), 'selector') {
-          // throw an error.
-          @error 'component `#{$name}` can\'t be declared twice';
-        }
-
-        // Overrides the existing component and get the result.
-        $component: _set-component($name, $selector, $declarations);
-
-         #{$selector} {
-           // Processes the scope content.
-           @content;
-         }
-
+    // If the component already exists
+    @if map-has-key(_get-component($name), 'selector') {
+      // throw an error.
+      @error 'component `#{$name}` can\'t be declared twice';
     }
+
+    // Overrides the existing component and get the result.
+    $component: _set-component($name, $selector, $declarations);
+
+    // Makes the parameters accessible from the `this` function.
+    @include new-scope(('_this': ('name': $name, 'selector': $selector, 'declarations': $declarations))) {
+      #{$selector} {
+        // Processes the scope content.
+        @content;
+      }
+    }
+
   }
 }

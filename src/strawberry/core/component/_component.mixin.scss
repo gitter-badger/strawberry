@@ -11,23 +11,26 @@
     validate-type($name, 'string', argument-type-error('$name', 'component()')),
     validate-type($declarations, 'map', argument-type-error('$declarations', 'component()'))
     ) {
-    @include new-scope(
-      (_componentName: $name)
-      ) {
-  
-  
-      // Makes sure that the component is created.
-      $component: _set-component($name);
 
-      // If we retrieve some declarations
-      @if $declarations != (null:null) {
-        // sets the default variant with these.
-        $newVariant: _set-component-variant($name, 'default', '', $declarations);
-      }
   
+  
+    // Makes sure that the component is created.
+    $component: _set-component($name);
+
+    // If we retrieve some declarations
+    @if $declarations != (null:null) {
+      // sets the default variant with these.
+      $newVariant: _set-component-variant($name, 'default', '&', $declarations);
+    }
+    @else {
+      $declarations: ();
+    }
+  
+    // Makes the parameters accessible from the `base` function.
+    @include new-scope(('_base': ('name': $name, 'declarations': $declarations))) {
       // Processes the scope content.
       @content;
-  
     }
+
   }   
 }
