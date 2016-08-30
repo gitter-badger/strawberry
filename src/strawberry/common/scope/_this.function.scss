@@ -1,8 +1,8 @@
-/// Returns the entity where we are.
+/// Returns the object where we are.
 /// @access public
 /// @group common
 /// @param {String} $variablePath [''] - The path of the variable to get
-/// @return {*} - The entity
+/// @return {*} - The object
 @function this(
   $variablePath: ''
   ) {
@@ -16,13 +16,13 @@
       $variablePath: ':#{$variablePath}';
     }
 
-    $entity: get('_this#{$variablePath}');
-
-    @if $entity == null {
-      @error '`#{$this}` function can\'t be used outside of a entity';
+    $object: get('_this#{$variablePath}');
+@debug  $object;
+    @if $object == null {
+      @error '`#{$this}` function can\'t be used outside of an object';
     }
 
-    @return $entity;
+    @return $object;
 
   }
 }

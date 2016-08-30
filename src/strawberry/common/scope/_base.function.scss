@@ -1,8 +1,8 @@
-/// Returns the parent entity.
+/// Returns the parent object.
 /// @access public
 /// @group common
 /// @param {String} $variablePath [''] - The path of the variable to get
-/// @return {*} - The entity
+/// @return {*} - The object
 @function base(
   $variablePath: ''
   ) {
@@ -16,13 +16,13 @@
       $variablePath: ':#{$variablePath}';
     }
 
-    $parentEntity: get('_base#{$variablePath}');
+    $parentObject: get('_base#{$variablePath}');
 
-    @if $parentEntity == null {
-      @error '`#{$this}` function can\'t be used outside of a nested entity';
+    @if $parentObject == null {
+      @error '`#{$this}` function can\'t be used outside of a nested object';
     }
 
-    @return $parentEntity;
+    @return $parentObject;
 
   }
 }
