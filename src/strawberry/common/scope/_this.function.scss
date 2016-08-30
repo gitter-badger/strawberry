@@ -17,7 +17,7 @@
     }
 
     $object: get('_this#{$variablePath}');
-@debug  $object;
+
     @if $object == null {
       @error '`#{$this}` function can\'t be used outside of an object';
     }
