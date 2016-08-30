@@ -3,7 +3,7 @@
  // With variants test
  // ==================
 
- @include it('should handle a component without variant') {   
+ @include it('should handle a component with variants') {   
    
    // == Arange ==
 
@@ -13,18 +13,18 @@
         'declarations': ('color': blue),
         'variants': (
           'default': (
-            'selector': '',
+            'selector': '&',
             'declarations': ('color': red)
             ),
           'primary': (
-            'selector': '.primary',
+            'selector': '&.primary',
             'declarations': ('color': green)
             )
           )          
         )
       ) !global; 
 
-    $_scope-variables-stack: ('_componentName': 'foo') () !global; 
+    $_scope-variables-stack: ('_this': ('name': 'foo')) () !global; 
 
     // == Assert ==
 
@@ -59,7 +59,7 @@
         )
       ) !global; 
 
-    $_scope-variables-stack: ('_componentName': 'foo') () !global;
+    $_scope-variables-stack: ('_this': ('name': 'foo')) () !global; 
 
     // == Assert ==
 

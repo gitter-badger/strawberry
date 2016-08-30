@@ -37,7 +37,7 @@
        'foo': (
          'variants': (
            'default': (  
-             'selector': '',
+             'selector': '&',
              'declarations': (
                'color': blue
                )
@@ -47,25 +47,6 @@
        )
      );
  }   
-
- // Add scope variables test
- // ========================
-
- @include it('should add the component name to the scope') {
-
-    // == Act ==
-
-    @include component('foo') {
-
-      // == Assert ==
-
-      @include assert-equal(
-        $assert: get('_componentName'),
-        $expected: 'foo'
-        );
-
-    }
- }
 
  // Output content test
  // ===================
