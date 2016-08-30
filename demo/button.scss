@@ -4,23 +4,28 @@
 @import './theme';
 
 @include new-component(
-  $name: 'my-button', 
-  $selector: '[--my-button]', 
+  $name: 'demo-button', 
+  $selector: '.demo-button', 
   $declarations: (
-    border: 1px solid black,
-    color: white
+    'background-color': transparent,
+    'border-color': black,
+    'border-radius': 4px,
+    'border-width': 0,
+    'color': black,
+    'font': get-font('primary'),
+    'padding': 5px 10px
     )
   ) { 
   @include dynamic {
-    border: get('border');
+    background-color: get('background-color');
+    border-color: get('border-color');
+    border-radius: get('border-radius');
+    border-width: get('border-width');
     color: get('color');
-    font-family: get-font('primary');
+    font: get('font');
+    padding: get('padding');
   }
   @include static {
-    background-color: yellow;
-
-    @include media-response('tablets and up') {
-      background-color: white;
-    }
-  }
+    cursor: pointer;
+   }
 }
