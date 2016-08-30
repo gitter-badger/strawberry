@@ -13,7 +13,7 @@
         )    
       ) !global; 
 
-    $_scope-variables-stack: ('base-color': 'primary') () !global; 
+    $_scope-variables-stack: ('_base': ('name': 'primary', 'code': blue)) () !global; 
 
     // == Act ==
 

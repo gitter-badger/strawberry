@@ -13,7 +13,7 @@
         )
       ) !global; 
 
-    $_scope-variables-stack: ('_componentName': 'foo') () !global; 
+    $_scope-variables-stack: ('_base': ('name': 'foo')) () !global; 
 
     // == Act ==
 

@@ -3,7 +3,7 @@
 /// @access public
 /// @group core
 @mixin dynamic {
-  $componentName: get('_componentName');
+  $componentName: this('name');
 
   $componentDeclarations: map-get(_get-component($componentName), 'declarations');
 
@@ -29,7 +29,7 @@
       
       // Creates a new scope containing the appropriate declarations.
       @include new-scope(if($variantName == 'default', $mergedDeclarations, $variantDeclarations)) {
-        &#{$variantSelector} {
+        #{$variantSelector} {
           // Outputs the CSS for the current variant.
           @content;
         }
