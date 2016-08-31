@@ -56,9 +56,10 @@ jspm_packages
 
 
 ### Test ###
-test
-tests
+/test
+/tests
 *.spec
+*.test
 .travis.*
 
 
@@ -66,6 +67,6 @@ tests
 demo
 
 ### Documentation ###
-doc
+/docs
 *.md
 .sassdoc.yml
