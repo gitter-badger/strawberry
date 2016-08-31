@@ -49,7 +49,7 @@
   ) {
   @include component-variant(
     $name: 'secondary',
-    $selector: '&.secondary',
+    $selector: '.secondary',
     $declarations: (
       'background-color': get-color('secondary'),
       'color': black
