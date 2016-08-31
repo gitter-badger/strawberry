@@ -65,7 +65,7 @@
   ) {
   @include component-variant(
     $name: 'my-component-variant',
-    $selector: '&.my-variant',
+    $selector: '.my-variant',
     $declarations: (
       'background-color': #76FF03,
       'color': black
