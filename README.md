@@ -31,11 +31,66 @@
 
 <br>
 
+## Usage
+
+### Step 1
+**Create** your component.
+
+````scss
+@include new-component(
+  $name: 'my-component', 
+  $selector: '.my-component', 
+  $declarations: (
+    'background-color': white,
+    'color': black
+    )
+  ) { 
+  @include dynamic {
+    background-color: get('background-color');
+    color: get('color');
+  }
+}
+````
+
+### Step 2
+**Edit** your component or create variants of it in the theme file.
+
+````scss
+@include component(
+  $name: 'my-component',
+  $declarations: (
+    'background-color': #B71C1C,
+    'color': white
+    )
+  ) {
+  @include component-variant(
+    $name: 'my-component-variant',
+    $selector: '&.my-variant',
+    $declarations: (
+      'background-color': #76FF03,
+      'color': black
+      )
+  );
+}
+````
+
+### Step 3
+**Use** your component and its variants in your application.
+
+````html
+<div class="my-component">MY COMPONENT</div>
+<div class="my-component my-variant">MY COMPONENT'S VARIANT</div>
+````
+
+<br>
+
 ## Features
 
 Easy to Use | Fast & Effective | Built to Last
 ----------- | ---------------- | -------------
 The simplicity is a priority and it's why Strawberry are built to be easy to use and easy to read. | Outputs only the needed css to make your application smaller and faster | Built with the popular Sass language and thinked to work with the very new technologies.
+
+<br>
 
 ## Installation
 
