@@ -59,7 +59,6 @@ jspm_packages
 test
 tests
 *.spec
-*.test
 .travis.*
 
 
