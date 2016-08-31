@@ -27,17 +27,9 @@
       // Merges the default declarations with the variant declarations.
       $mergedDeclarations: map-merge($componentDeclarations, $variantDeclarations); 
       
-      $usedDeclarations: $mergedDeclarations;
-      $usedSelector: '&#{$variantSelector}';
-
-      @if $variantName == 'default' {
-        $usedDeclarations: $variantDeclarations;
-        $usedSelector: $variantSelector;
-      }
-
       // Creates a new scope containing the appropriate declarations.
-      @include new-scope($usedDeclarations) {
-        #{$usedSelector} {
+      @include new-scope(if($variantName == 'default', $mergedDeclarations, $variantDeclarations)) {
+        &#{$variantSelector} {
           // Outputs the CSS for the current variant.
           @content;
         }
