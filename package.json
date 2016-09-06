@@ -27,9 +27,7 @@
     "build": "node-sass ./ -o ./ --include-path ./src",
     "build:w": "node-sass ./ -o ./ --include-path ./src -w",
     "demo": "cd ./demo && lite-server",
-    "doc": "sassdoc ./src -c ./.sassdoc.yml",
-    "postdoc": "cd ./doc && lite-server",
-    "lint": "sass-lint ./**/*.scss -c ./.sass-lint.yml -v -i ./node_modules/**"
+    "lint": "sass-lint ./**/*.scss -c .sass-lint.yml -v -i ./node_modules/**"
   },
   "dependencies": {},
   "devDependencies": {
