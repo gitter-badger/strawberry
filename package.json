@@ -23,14 +23,15 @@
     "url": "https://github.com/strawberrysass/strawberry.git"
   },
   "scripts": {
-    "test": "mocha",
-    "build": "node-sass ./ -o ./ --include-path ./src",
-    "build:w": "node-sass ./ -o ./ --include-path ./src -w",
-    "demo": "cd ./demo && lite-server",
+    "prepublish": "npm run lint && npm run test",
+    "test": "mocha ./test/index.js",
+    "predemo": "cd ./demo && node-sass ./ -o ./ --include-path ../src",
+    "demo": "cd ./demo && concurrently \"lite-server\" \"node-sass ./ -o ./ --include-path ../src -w\" --names \"server,build\" -p name",
     "lint": "sass-lint ./**/*.scss -c .sass-lint.yml -v -i ./node_modules/**"
   },
   "dependencies": {},
   "devDependencies": {
+    "concurrently": "^2.2.0",
     "lite-server": "^2.2.2",
     "mocha": "^3.0.2",
     "node-sass": "^3.8.0",
