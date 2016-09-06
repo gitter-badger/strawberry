@@ -8,7 +8,7 @@
 @function _set-component(
   $name, 
   $selector: '', 
-  $declarations: (null:null)
+  $declarations: (null: null)
   ) {
   @if no-error(
     validate-type($name, 'string', argument-type-error('$name', '_set-component()')),
@@ -23,7 +23,7 @@
       $newComponent: map-merge($newComponent, (selector: $selector));
     }
 
-    @if ($declarations != (null:null)) {
+    @if ($declarations != (null: null)) {
       $newComponent: map-merge($newComponent, (declarations: $declarations));
     }
 

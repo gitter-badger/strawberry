@@ -16,16 +16,16 @@
     ) {
 
 
-      $result: ();
+    $result: ();
   
-      // Calculates the element index if the index is negative.
-      $index: if($index < 0, length($list) + $index + 1, $index);  
+    // Calculates the element index if the index is negative.
+    $index: if($index < 0, length($list) + $index + 1, $index);  
   
-      @for $i from 1 through length($list) {
-        // If the index is not the index that we want to remove,
-        @if $i != $index {
-          // adds the element at this index to the result.
-          $result: append($result, nth($list, $i));
+    @for $i from 1 through length($list) {
+      // If the index is not the index that we want to remove,
+      @if $i != $index {
+        // adds the element at this index to the result.
+        $result: append($result, nth($list, $i));
         }
       }
           

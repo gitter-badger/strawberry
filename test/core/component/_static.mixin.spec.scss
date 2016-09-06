@@ -1,9 +1,9 @@
 @include describe('static [mixin]') {
 
- // Output content test
- // ===================
-
- @include it('should output a content under their parent block') {   
+  // Output content test
+  // ===================
+ 
+  @include it('should output a content under their parent block') {   
 
     @include assert {
 

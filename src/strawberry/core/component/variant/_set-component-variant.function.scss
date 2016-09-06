@@ -10,7 +10,7 @@
   $componentName,
   $variantName,
   $variantSelector: '',
-  $variantDeclarations: (null:null)
+  $variantDeclarations: (null: null)
   ) {
   @if no-error(
     validate-type($componentName, 'string', argument-type-error('$componentName', '_set-component-variant()')),
@@ -20,8 +20,8 @@
     ) {
 
 
-    @if ($variantDeclarations == (null:null)) {
-        $variantDeclarations: ();
+    @if ($variantDeclarations == (null: null)) {
+      $variantDeclarations: ();
     }
 
     // Gets the component variants.
@@ -29,8 +29,8 @@
 
     // Creates the new variant map.
     $newVariant: (
-        selector: $variantSelector,
-        declarations: $variantDeclarations
+      selector: $variantSelector,
+      declarations: $variantDeclarations
     );
 
     // Merges the new component variant with the existing one.

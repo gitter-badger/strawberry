@@ -19,7 +19,7 @@
     
     // If the component doesn't has variants.
     @if ($componentVariants == null) {
-        $componentVariants: ();
+      $componentVariants: ();
     }
 
     @return $componentVariants;

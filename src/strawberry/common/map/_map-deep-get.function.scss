@@ -15,13 +15,15 @@
     ) {
 
 
+    // TODO(maximegelinas): Add comments.
+
     @each $key in $keys {
-        @if type-of($map) == 'map' and map-has-key($map, $key) {
-          $map: map-get($map, $key);
-        }
-        @else {
-            @return null;
-        }
+      @if type-of($map) == 'map' and map-has-key($map, $key) {
+        $map: map-get($map, $key);
+      }
+      @else {
+        @return null;
+      }
     }
 
     @return $map;

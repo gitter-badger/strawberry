@@ -12,7 +12,7 @@
 
   @if $componentVariants == () {
     @include new-scope($componentDeclarations) {
-       @content;
+      @content;
     }
   }
   @else {

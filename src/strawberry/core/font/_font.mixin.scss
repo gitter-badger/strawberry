@@ -17,10 +17,10 @@
     ) {
 
 
-      $newFont: '#{$style} #{$weight} medium/normal #{$family}';
+    $newFont: '#{$style} #{$weight} medium/normal #{$family}';
 
-      // Adds the new font to the font list.
-      $_fonts: map-merge($_fonts, ($name: $newFont)) !global;
+    // Adds the new font to the font list.
+    $_fonts: map-merge($_fonts, ($name: $newFont)) !global;
 
   }
 }

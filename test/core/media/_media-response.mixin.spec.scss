@@ -3,20 +3,20 @@
   // Output media test
   // ===================
 
-  @include it('should output a content inside a media') {   
+  @include it('should output a content inside a media') {
 
     // == Arange ==
 
     $_medias: (
       'tablets and up': 'only screen and (min-width: 768px)'
-      ) !global; 
+      ) !global;
 
     // == Assert ==
 
     @include assert {
 
       @include output {
-        @include media-response('tablets and up') { 
+        @include media-response('tablets and up') {
           color: blue;
         }
       }

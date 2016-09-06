@@ -13,8 +13,8 @@
     ) {
 
 
-      // Adds the new media to the media list.
-      $_medias: map-merge($_medias, ($name: $query)) !global;
+    // Adds the new media to the media list.
+    $_medias: map-merge($_medias, ($name: $query)) !global;
 
   }
 }

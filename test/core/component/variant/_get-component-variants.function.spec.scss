@@ -27,14 +27,14 @@
     @include assert-equal(
       $assert: _get-component-variants('foo'),
       $expected: (
-          'default': (
-            'selector': '',
-            'declarations': ('color': red)
-            ),
-          'primary': (
-            'selector': '.primary',
-            'declarations': ('color': green)
-            )
+        'default': (
+          'selector': '',
+          'declarations': ('color': red)
+           ),
+        'primary': (
+          'selector': '.primary',
+          'declarations': ('color': green)
+           )
           )       
       );
   }

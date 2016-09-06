@@ -1,9 +1,9 @@
 @include describe('new-component [mixin]') {
 
- // Create component test
- // =====================
-
- @include it('should create a new component with a selector and declarations') {
+  // Create component test
+  // =====================
+ 
+  @include it('should create a new component with a selector and declarations') {
 
     // == Arange ==
 
@@ -18,20 +18,20 @@
     @include assert-equal(
       $assert: $_components,
       $expected: (
-       'foo': (
-         'selector': '.foo',
-         'declarations': (
-           'color': blue
+        'foo': (
+          'selector': '.foo',
+          'declarations': (
+            'color': blue
            )
          )         
        )
       );
  }
 
- // Output content test
- // ===================
-
- @include it('should output a content under the received selector') {   
+  // Output content test
+  // ===================
+ 
+  @include it('should output a content under the received selector') {   
 
     // == Arange ==
 

@@ -1,11 +1,11 @@
 @include describe('dynamic [mixin]') {
 
- // With variants test
- // ==================
+  // With variants test
+  // ==================
 
- @include it('should handle a component with variants') {   
+  @include it('should handle a component with variants') {   
    
-   // == Arange ==
+    // == Arange ==
 
     $_components: (
       'foo': (
@@ -45,10 +45,10 @@
     }
  }
 
- // Without variant test
- // ====================
+  // Without variant test
+  // ====================
 
- @include it('should handle a component without variant') {   
+  @include it('should handle a component without variant') {   
 
     // == Arange ==
 

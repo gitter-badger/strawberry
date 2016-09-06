@@ -5,7 +5,7 @@
 /// @param {Map} $declarations - [(null:null)] - The declarations for the default variant
 @mixin component(
   $name,
-  $declarations: (null:null)
+  $declarations: (null: null)
   ) {
   @if no-error(
     validate-type($name, 'string', argument-type-error('$name', 'component()')),
@@ -18,7 +18,7 @@
     $component: _set-component($name);
 
     // If we retrieve some declarations
-    @if $declarations != (null:null) {
+    @if $declarations != (null: null) {
       // sets the default variant with these.
       $newVariant: _set-component-variant($name, 'default', '', $declarations);
     }

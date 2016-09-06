@@ -17,7 +17,7 @@
     // If the color already exists
     @if map-has-key($_colors, $name) {
       // throw an error.
-      @error 'color `#{$name}` can\'t be declared twice'
+      @error 'color `#{$name}` can\'t be declared twice';     
     }
 
     // Creates the new color map with some default variants.

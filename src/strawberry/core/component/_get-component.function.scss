@@ -15,7 +15,7 @@
 
     // If the component doesn't exists.
     @if ($component == null) {
-        $component: ();
+      $component: ();
     }
 
     @return $component;

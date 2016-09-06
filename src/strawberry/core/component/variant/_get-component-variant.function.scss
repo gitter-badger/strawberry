@@ -21,17 +21,17 @@
 
     // If the component doesn't has variants
     @if ($componentVariants == ()) {
-        $variant: ();
+      $variant: ();
     }
     // If the component has variants
     @else {
-        // Gets the variant by its name.
-        $variant: map-get($componentVariants, $variantName);
+      // Gets the variant by its name.
+      $variant: map-get($componentVariants, $variantName);
 
-        // If the variant doesn't exists
-        @if ($variant == null) {
-            $variant: ();
-        }
+      // If the variant doesn't exists
+      @if ($variant == null) {
+        $variant: ();
+      }
     }
 
     @return $variant;

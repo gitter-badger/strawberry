@@ -34,7 +34,7 @@
 
     // == Act ==
     
-    @include new-scope(('baz': 3)) { }
+    @include new-scope(('baz': 3));
 
     // == Assert ==
     
@@ -44,10 +44,10 @@
       );
   }
 
- // Output content test
- // ===================
-
- @include it('should output a content') {   
+  // Output content test
+  // ===================
+ 
+  @include it('should output a content') {   
 
     @include assert {
 

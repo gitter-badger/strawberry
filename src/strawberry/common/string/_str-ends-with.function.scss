@@ -31,10 +31,10 @@
       @return false;
     }
    
-   // Gets the part of the parent string that we want to compare.
-   $endToCompare: str-slice($string, $stringLength - $searchLength + 1);
+    // Gets the part of the parent string that we want to compare.
+    $endToCompare: str-slice($string, $stringLength - $searchLength + 1);
 
-   @return $endToCompare == $search;
+    @return $endToCompare == $search;
 
   }
 }
