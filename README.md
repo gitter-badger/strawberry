@@ -7,7 +7,7 @@
 <!-- == Logo == -->
 
 <p align="center">
-    <img height="300" src="https://cdn.rawgit.com/strawberrysass/strawberry-branding/master/strawberry-logo.png">
+    <img height="300" src="https://cdn.rawgit.com/strawberrysass/strawberry-branding/master/logo_1500x1872.png">
 </p>
 
 <!-- == Badges == -->
@@ -59,7 +59,7 @@
 @include component(
   $name: 'my-component',
   $declarations: (
-    'background-color': #B71C1C,
+    'background-color': #b71c1c,
     'color': white
     )
   ) {
@@ -67,7 +67,7 @@
     $name: 'my-component-variant',
     $selector: '.my-variant',
     $declarations: (
-      'background-color': #76FF03,
+      'background-color': #76ff03,
       'color': black
       )
   );
